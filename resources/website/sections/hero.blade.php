@@ -2,7 +2,7 @@
 <section id="hero">
   <div class="hero-video" aria-hidden="true">
     <video autoplay muted loop playsinline preload="metadata">
-      <source src="{{ asset('storage/videos/it-video.mp4') }}" type="video/mp4" />
+      <source src="{{ asset('videos/it-video.mp4') }}" type="video/mp4" />
     </video>
   </div>
   <div class="hero-grid"></div>
