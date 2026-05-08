@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interia Technologies — Managed IT for Las Vegas Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@@300;400;500;600&family=DM+Mono:wght@@400;500&display=swap" rel="stylesheet" />
+
+
+<style>
+:root,
+[data-theme="dark"] {
+  --brand-primary:   #0257B9;
+  --brand-dark:      #020B14;
+  --brand-surface:   rgba(1, 20, 41, 0.10);
+
+  --bg:              #020B14;
+  --bg-2:            #040E1A;
+  --surface:         #071527;
+  --card:            #0A1C32;
+  --card-hover:      #0D2140;
+  --border:          rgba(2, 87, 185, 0.18);
+  --border-strong:   rgba(2, 87, 185, 0.35);
+
+  --text:            #E8EFF8;
+  --text-muted:      #6B8099;
+  --text-faint:      #3B4F65;
+
+  --accent:          #0257B9;
+  --accent-light:    #1A72E8;
+  --accent-glow:     rgba(2, 87, 185, 0.25);
+  --accent-soft:     rgba(2, 87, 185, 0.10);
+  --accent2:         #0A7AFF;
+
+  --nav-bg:          rgba(2, 11, 20, 0.88);
+  --shadow-card:     0 4px 24px rgba(0,0,0,0.45);
+  --shadow-glow:     0 0 40px rgba(2, 87, 185, 0.22);
+  --overlay-bg:      rgba(1, 6, 14, 0.92);
+
+  --scrollbar-thumb: #0257B9;
+}
+
+[data-theme="light"] {
+  --bg:              #F0F6FF;
+  --bg-2:            #E8F0FC;
+  --surface:         #DDEAF8;
+  --card:            #FFFFFF;
+  --card-hover:      #F4F8FF;
+  --border:          rgba(2, 87, 185, 0.15);
+  --border-strong:   rgba(2, 87, 185, 0.35);
+
+  --text:            #020B14;
+  --text-muted:      #3D6080;
+  --text-faint:      #8BA8C4;
+
+  --accent:          #0257B9;
+  --accent-light:    #0466D4;
+  --accent-glow:     rgba(2, 87, 185, 0.15);
+  --accent-soft:     rgba(2, 87, 185, 0.08);
+  --accent2:         #0A4FA0;
+
+  --nav-bg:          rgba(240, 246, 255, 0.92);
+  --shadow-card:     0 4px 24px rgba(2, 87, 185, 0.10);
+  --shadow-glow:     0 0 40px rgba(2, 87, 185, 0.12);
+  --overlay-bg:      rgba(2, 11, 20, 0.85);
+
+  --scrollbar-thumb: #0257B9;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.3;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+nav.scrolled { padding: 0.8rem 6%; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.nav-logo img {
+  display: block;
+  width: 150px;
+  height: auto;
+}
+
+@media (min-width: 901px) {
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1px; background: var(--accent);
+  transform: scaleX(0); transition: transform 0.25s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-right {
+  display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--card), var(--surface));
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  box-shadow: 0 8px 24px rgba(2, 87, 185, 0.12);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.25s, color 0.3s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  box-shadow: 0 12px 32px var(--accent-glow);
+  transform: translateY(-1px);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.theme-icon {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+}
+.theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-35deg) scale(0.65);
+}
+.theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+[data-theme="light"] .theme-toggle {
+  background: rgba(255,255,255,0.72);
+  color: #F59E0B;
+}
+[data-theme="light"] .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+[data-theme="light"] .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(35deg) scale(0.65);
+}
+
+.nav-cta {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 0.5rem 1.4rem;
+  border-radius: 4px;
+  font-weight: 600 !important;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; display: block; }
+
+/* CURSOR GLOW */
+.cursor-glow {
+  position: fixed;
+  width: 350px; height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%,-50%);
+  transition: left 0.12s, top 0.12s;
+}
+
+/* AUTH MODAL */
+.auth-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(16px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 1rem;
+}
+.auth-overlay.open { opacity: 1; pointer-events: all; }
+
+.auth-modal {
+  width: 100%; max-width: 480px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(40px) scale(0.97);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5), var(--shadow-glow);
+}
+.auth-overlay.open .auth-modal { transform: translateY(0) scale(1); }
+
+.auth-modal-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), #38BDF8, var(--accent));
+  background-size: 300% 100%;
+  animation: barShift 3s linear infinite;
+}
+@keyframes barShift { 0%{background-position:0%} 100%{background-position:300%} }
+
+.auth-modal-inner { padding: 2.5rem 2.5rem 2.8rem; }
+
+.auth-close {
+  position: absolute; top: 1.2rem; right: 1.4rem;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer; font-size: 1rem; color: var(--text-muted);
+  transition: all 0.2s; z-index: 2;
+}
+.auth-close:hover { background: var(--accent-soft); color: var(--text); transform: rotate(90deg); }
+
+.auth-tabs {
+  display: flex;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.auth-tab-btn {
+  flex: 1; padding: 0.6rem 1rem;
+  border: none; background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-muted); cursor: pointer;
+  border-radius: 7px; transition: color 0.2s;
+  position: relative; z-index: 1;
+}
+.auth-tab-btn.active { color: #fff; }
+.auth-tab-slider {
+  position: absolute; top: 4px; bottom: 4px;
+  width: calc(50% - 4px);
+  background: var(--accent);
+  border-radius: 7px;
+  transition: left 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  left: 4px;
+}
+.auth-tab-slider.right { left: calc(50%); }
+
+.auth-panel { display: none; animation: panelIn 0.35s ease; }
+.auth-panel.active { display: block; }
+@keyframes panelIn { from{opacity:0;transform:translateX(15px)} to{opacity:1;transform:translateX(0)} }
+
+.auth-logo { text-align:center; margin-bottom:0.3rem; font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:0.06em; color:var(--text); }
+.auth-logo span { color:var(--accent); }
+.auth-tagline { text-align:center; font-size:0.82rem; color:var(--text-muted); margin-bottom:1.8rem; }
+
+.auth-field { display:flex; flex-direction:column; gap:0.45rem; margin-bottom:1.1rem; position:relative; }
+.auth-field label { font-size:0.74rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:500; }
+
+.auth-input-wrap { position:relative; }
+.auth-input-icon { position:absolute; left:0.9rem; top:50%; transform:translateY(-50%); font-size:1rem; opacity:0.5; pointer-events:none; transition:opacity 0.2s; }
+
+.auth-field input {
+  width:100%; background:var(--surface); border:1px solid var(--border);
+  border-radius:9px; padding:0.82rem 1rem 0.82rem 2.6rem;
+  font-family:'DM Sans',sans-serif; font-size:0.92rem;
+  color:var(--text); outline:none;
+  transition:border-color 0.25s,box-shadow 0.25s,background 0.2s;
+}
+.auth-field input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); background:var(--accent-soft); }
+.auth-field input:focus ~ .auth-input-icon,
+.auth-input-wrap:focus-within .auth-input-icon { opacity:0.9; }
+
+.pw-toggle { position:absolute; right:0.9rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:0.9rem; color:var(--text-muted); transition:color 0.2s; }
+.pw-toggle:hover { color:var(--accent); }
+
+.pw-strength-wrap { margin-top:0.4rem; display:none; }
+.pw-strength-wrap.visible { display:block; }
+.pw-strength-bar { height:3px; border-radius:3px; background:var(--border); overflow:hidden; margin-bottom:0.25rem; }
+.pw-strength-fill { height:100%; width:0%; border-radius:3px; transition:width 0.4s ease,background 0.4s ease; }
+.pw-strength-text { font-size:0.72rem; color:var(--text-muted); }
+
+.auth-name-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+
+.auth-divider { display:flex; align-items:center; gap:0.8rem; margin:1.4rem 0; font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
+.auth-divider::before,.auth-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.auth-socials { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:1.4rem; }
+.social-btn { display:flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.7rem 1rem; background:var(--surface); border:1px solid var(--border); border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; color:var(--text); cursor:pointer; text-decoration:none; transition:border-color 0.2s,background 0.2s,transform 0.2s; }
+.social-btn:hover { border-color:var(--border-strong); background:var(--accent-soft); transform:translateY(-1px); }
+.social-btn svg { width:16px; height:16px; }
+
+.auth-check { display:flex; align-items:flex-start; gap:0.6rem; font-size:0.82rem; color:var(--text-muted); margin-bottom:1.2rem; cursor:pointer; }
+.auth-check input[type=checkbox] { accent-color:var(--accent); margin-top:3px; flex-shrink:0; }
+.auth-check a { color:var(--accent); text-decoration:none; }
+.auth-check a:hover { text-decoration:underline; }
+
+.auth-forgot { font-size:0.78rem; color:var(--text-muted); text-align:right; margin-top:-0.6rem; margin-bottom:1rem; display:block; text-decoration:none; transition:color 0.2s; }
+.auth-forgot:hover { color:var(--accent); }
+
+.auth-submit {
+  width:100%; padding:0.9rem;
+  background:var(--accent); color:#fff;
+  font-family:'DM Sans',sans-serif; font-weight:700;
+  font-size:0.92rem; letter-spacing:0.08em; text-transform:uppercase;
+  border:none; border-radius:9px; cursor:pointer;
+  transition:all 0.25s;
+  box-shadow:0 4px 20px var(--accent-glow);
+  position:relative; overflow:hidden;
+}
+.auth-submit::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent); transform:translateX(-100%); transition:transform 0.5s; }
+.auth-submit:hover { background:var(--accent-light); transform:translateY(-2px); box-shadow:0 8px 30px rgba(2,87,185,0.4); }
+.auth-submit:hover::before { transform:translateX(100%); }
+
+.auth-switch { text-align:center; margin-top:1.4rem; font-size:0.83rem; color:var(--text-muted); }
+.auth-switch a { color:var(--accent); font-weight:600; text-decoration:none; transition:opacity 0.2s; }
+.auth-switch a:hover { opacity:0.8; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: flex-start;
+  overflow: hidden;
+  padding: 8rem 6% 4rem;
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(2,87,185,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2,87,185,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridDrift 20s linear infinite;
+}
+[data-theme="light"] .hero-grid {
+  background-image:
+    linear-gradient(rgba(2,87,185,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2,87,185,0.06) 1px, transparent 1px);
+}
+@keyframes gridDrift { from{transform:translateY(0)} to{transform:translateY(60px)} }
+
+.hero-glow {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(2,87,185,0.15) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  animation: pulsate 4s ease-in-out infinite;
+}
+@keyframes pulsate { 0%,100%{opacity:0.7;transform:translate(-50%,-50%) scale(1)} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)} }
+
+.orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+.orb1 { width:300px;height:300px;background:radial-gradient(circle,rgba(2,87,185,0.10),transparent 70%);top:20%;left:5%;animation-delay:-2s; }
+.orb2 { width:200px;height:200px;background:radial-gradient(circle,rgba(10,122,255,0.08),transparent 70%);top:60%;right:8%;animation-delay:-5s; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+
+.hero-skyline {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 55%; opacity: 0.1; pointer-events: none;
+}
+[data-theme="light"] .hero-skyline { opacity: 0.06; }
+
+/* HERO CONTENT — LEFT ALIGNED, matches Image 2 text */
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem; color: var(--accent);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 1.8rem;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-badge .dot { width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* MODIFIED HERO HEADLINE — matches Image 2 */
+.hero-headline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+}
+.hero-headline .accent { color: var(--accent); }
+
+/* Vertical accent bar left (like Image 2) */
+.hero-sub-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin: 1.8rem 0 2.5rem;
+  opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
+}
+.hero-sub-bar {
+  width: 4px;
+  min-height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.hero-sub {
+  font-size: 1.05rem; color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.hero-trust {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+}
+.trust-chip {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.82rem; font-weight: 500; color: var(--text);
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.4rem 0.9rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.trust-chip:hover { border-color: var(--border-strong); background: var(--accent-soft); }
+.trust-chip .check { color: var(--accent); font-size: 0.9rem; }
+
+.hero-ctas {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.9s 1s forwards;
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* BUTTONS */
+.btn-primary {
+  background: var(--accent); color: #fff;
+  font-weight: 700; font-size: 0.9rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.9rem 2rem; border-radius: 6px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(2,87,185,0.4); }
+
+.btn-secondary {
+  background: transparent; color: var(--text);
+  font-weight: 600; font-size: 0.9rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.9rem 2rem; border-radius: 6px;
+  text-decoration: none; border: 1px solid var(--border-strong);
+  cursor: pointer; transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+}
+.btn-primary .btn-icon {
+  filter: brightness(0) invert(1);
+}
+.btn-secondary .btn-icon {
+  filter: none;
+}
+[data-theme="dark"] .btn-secondary .btn-icon {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(94%) saturate(2207%) hue-rotate(199deg) brightness(103%) contrast(101%);
+}
+
+.skyline-svg { width: 100%; height: 100%; }
+
+/* SECTION SHARED */
+section { padding: 7rem 6%; position: relative; }
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.section-label::before { content:''; display:inline-block; width:30px; height:1px; background:var(--accent); }
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1; letter-spacing: 0.03em; margin-bottom: 1.2rem;
+  color: var(--text);
+}
+.section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 540px; margin-bottom: 3.5rem; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* STATS BAND */
+.stats-band {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1px; background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-item { background: var(--surface); padding: 2.5rem 1.5rem; text-align: center; transition: background 0.4s; }
+.stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--accent); letter-spacing: 0.02em; }
+.stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* SERVICES */
+#services { background: var(--surface); transition: background 0.4s; }
+
+.services-image-strip {
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 3.5rem;
+  position: relative;
+  height: 220px;
+  border: 1px solid var(--border);
+}
+.services-image-strip::before,
+.services-image-strip::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; z-index: 2; width: 100px;
+  pointer-events: none;
+}
+.services-image-strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--surface), transparent);
+}
+.services-image-strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--surface), transparent);
+}
+.services-strip-track {
+  display: flex;
+  gap: 12px;
+  animation: stripScroll 35s linear infinite;
+  width: max-content;
+  height: 100%;
+}
+.services-strip-track:hover { animation-play-state: paused; }
+@keyframes stripScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.strip-img {
+  width: 320px; height: 100%;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.strip-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.strip-img:hover img { transform: scale(1.05); }
+.strip-img .strip-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(2,11,20,0.85), transparent);
+  padding: 1rem 0.9rem 0.7rem;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5px; background: var(--border);
+  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+}
+.service-card {
+  background: var(--card); padding: 2.5rem 2rem;
+  position: relative; overflow: hidden; cursor: default;
+  transition: background 0.3s;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.service-card:hover { background: var(--card-hover); }
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-icon {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-soft); border: 1px solid var(--border-strong);
+  border-radius: 10px; margin-bottom: 1.5rem;
+  transition: background 0.3s;
+}
+.service-icon img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+.service-card:hover .service-icon { background: rgba(2,87,185,0.18); }
+.service-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.7rem; color: var(--text); }
+.service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+.service-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 1.2rem; font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--accent); text-decoration: none; opacity: 0; transition: opacity 0.3s;
+}
+.service-card:hover .service-link { opacity: 1; }
+
+/* WHY INTERIA */
+#why { background: var(--bg); overflow: hidden; transition: background 0.4s; }
+
+.why-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: stretch; }
+.why-visual { position: relative; min-height: 480px; height: 100%; align-self: stretch; }
+
+.city-card {
+  position: absolute; inset: 0;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.city-card img,
+.city-card svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.city-card img { object-fit: cover; }
+
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+.why-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.3s, transform 0.3s, background 0.4s;
+}
+.why-item:hover { border-color: var(--border-strong); transform: translateX(6px); }
+.why-item .wi-icon { width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--accent-soft);border-radius:8px;margin-top:2px; }
+.why-item .wi-icon img { width:22px;height:22px;display:block; }
+.why-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--text); }
+.why-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ═══════════════════════════════════════════════
+   GALLERY — PEOPLE COLLAGE
+   ═══════════════════════════════════════════════ */
+#gallery {
+  background: var(--bg);
+  overflow: hidden;
+  padding: 0;
+  transition: background 0.4s;
+}
+
+.gallery-mosaic-wrap {
+  position: relative;
+  width: 100%;
+  padding: clamp(3rem, 6.5vw, 5.8rem) 1.5% clamp(3.5rem, 7.5vw, 6.3rem);
+  background:
+    radial-gradient(circle at 50% 84%, rgba(2, 87, 185, 0.08), transparent 35%),
+    var(--bg);
+  transition: background 0.4s;
+}
+[data-theme="light"] .gallery-mosaic-wrap {
+  background:
+    radial-gradient(circle at 50% 84%, rgba(2, 87, 185, 0.045), transparent 36%),
+    var(--bg);
+}
+
+.gallery-mosaic {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1360px);
+  aspect-ratio: 1360 / 640;
+  margin: 0 auto;
+}
+
+.gallery-bg-text {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: min(680px, 70vw);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--accent);
+  opacity: 1;
+  text-align: center;
+  text-transform: none;
+  white-space: normal;
+  pointer-events: none;
+  transition: color 0.4s, opacity 0.4s;
+}
+.gallery-bg-text span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  line-height: 1.12;
+  letter-spacing: -0.05em;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+.gallery-bg-text span:first-child {
+  font-weight: 700;
+  color: var(--accent);
+}
+.gallery-bg-text span:last-child {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.gallery-bg-text span + span {
+  margin-top: 0.1rem;
+}
+[data-theme="light"] .gallery-bg-text {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.mosaic-card {
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  background: var(--card);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s ease,
+              border-color 0.3s ease;
+}
+[data-theme="light"] .mosaic-card {
+  border-color: rgba(2, 11, 20, 0.04);
+  box-shadow: 0 16px 35px rgba(2, 11, 20, 0.08);
+}
+.mosaic-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 24px 55px rgba(2, 87, 185, 0.28);
+  border-color: var(--border-strong);
+  z-index: 10;
+}
+
+.mosaic-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+.mosaic-card:hover img { transform: scale(1.06); }
+.mosaic-card.tone-muted img { filter: grayscale(1) contrast(0.96); }
+
+.mosaic-card.shape-left-top { left: 0; top: 22.5%; width: 9.5%; height: 26.8%; }
+.mosaic-card.shape-left-bottom { left: 0; top: 51.4%; width: 9.5%; height: 26.4%; }
+.mosaic-card.shape-team { left: 11.1%; top: 19.3%; width: 12.2%; height: 20.7%; }
+.mosaic-card.shape-desk { left: 11.1%; top: 42.5%; width: 12.2%; height: 21.1%; }
+.mosaic-card.shape-office { left: 11.1%; top: 66.1%; width: 12.2%; height: 13.9%; }
+.mosaic-card.shape-coffee { left: 24.9%; top: 10.7%; width: 12%; height: 56.8%; }
+.mosaic-card.shape-window { left: 38.7%; top: 4.3%; width: 10.9%; height: 55.7%; }
+.mosaic-card.shape-people { left: 51.7%; top: 5.7%; width: 11.8%; height: 51.1%; }
+.mosaic-card.shape-meeting { left: 65.5%; top: 15%; width: 11.1%; height: 53.6%; }
+.mosaic-card.shape-notes { left: 78.6%; top: 18.9%; width: 9.6%; height: 21.8%; }
+.mosaic-card.shape-books { left: 78.6%; top: 43.2%; width: 9.6%; height: 22.9%; }
+.mosaic-card.shape-laptop { left: 78.6%; top: 68.9%; width: 9.6%; height: 14.6%; }
+.mosaic-card.shape-student { left: 90.4%; top: 21.1%; width: 9.6%; height: 25.4%; }
+.mosaic-card.shape-culture { left: 90.4%; top: 52.1%; width: 9.6%; height: 24.3%; }
+
+@keyframes mosaicReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mosaic-hidden .mosaic-card { opacity: 0; animation: none; }
+.mosaic-visible .mosaic-card { animation: mosaicReveal 0.6s ease forwards; }
+
+/* FREE OFFERS */
+#offers { background: var(--bg); transition: background 0.4s; }
+
+.offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.offer-card {
+  border-radius: 16px; overflow: hidden;
+  position: relative; padding: 2.5rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  display: flex; flex-direction: column; gap: 1.2rem;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.4s;
+}
+.offer-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+
+.offer-card.gold { background: var(--card); border-color: var(--border-strong); }
+.offer-card.gold::before {
+  content: ''; position: absolute; inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, rgba(2,87,185,0.22), transparent 50%);
+  z-index: -1;
+}
+.offer-card.blue { background: var(--card); border-color: rgba(10,122,255,0.25); }
+
+.offer-tag {
+  display: inline-flex; font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; border-radius: 100px; width: fit-content;
+}
+.offer-tag.gold-tag { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border-strong); }
+.offer-tag.blue-tag { background: rgba(10,122,255,0.10); color: #60A5FA; border: 1px solid rgba(10,122,255,0.25); }
+
+.offer-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; line-height: 1.1; letter-spacing: 0.03em; color: var(--text); }
+.offer-card p { font-size: 0.92rem; color: var(--text-muted); }
+.offer-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+}
+.offer-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ABOUT */
+#about { background: var(--surface); transition: background 0.4s; }
+
+.about-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: stretch; }
+
+.about-visual {
+  position: relative; border-radius: 16px; overflow: hidden;
+  background: var(--card); border: 1px solid var(--border); padding: 0;
+  transition: background 0.4s;
+  align-self: stretch;
+}
+.about-visual img,
+.about-visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.about-visual img { object-fit: cover; }
+
+.mv-cards { display: grid; gap: 1.5rem; margin-top: 2rem; }
+.mv-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.8rem;
+  position: relative; overflow: hidden;
+  transition: background 0.4s;
+}
+.mv-card::after { content:''; position:absolute; left:0;top:0;bottom:0; width:3px; background:linear-gradient(180deg,var(--accent),var(--accent2)); }
+.mv-card h4 { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:0.05em; color:var(--accent); margin-bottom:0.6rem; }
+.mv-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+.team-note {
+  background: var(--accent-soft); border: 1px solid var(--border-strong);
+  border-radius: 10px; padding: 1.2rem 1.5rem;
+  font-size: 0.88rem; color: var(--text-muted);
+  margin-top: 1.5rem; line-height: 1.7;
+}
+.team-note strong { color: var(--text); display:inline-flex;align-items:center;gap:0.4rem; }
+.team-note strong img { width:18px;height:18px;display:block;flex-shrink:0; }
+
+/* CONTACT */
+#contact { background: var(--bg); transition: background 0.4s; }
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.contact-block {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; transition: border-color 0.3s, background 0.4s;
+}
+.contact-block:hover { border-color: var(--border-strong); }
+.contact-block .cb-icon { font-size:1.3rem;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--accent-soft);border-radius:8px;flex-shrink:0; }
+.contact-block .cb-icon img { width:24px;height:24px;display:block; }
+.contact-block h5 { font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.25rem; }
+.contact-block p { font-size:0.95rem;color:var(--text);font-weight:500; }
+
+.contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group label { font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:500; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.85rem 1rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.92rem;
+  color: var(--text); outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.4s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select option { background: var(--card); color: var(--text); }
+
+.form-submit {
+  width: 100%; background: var(--accent); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-weight: 700;
+  font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 1rem; border: none; border-radius: 8px;
+  cursor: pointer; transition: all 0.25s;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+.form-submit:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(2,87,185,0.4); }
+
+/* FOOTER */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 3rem 6%;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; gap: 1.5rem;
+  transition: background 0.4s;
+}
+.footer-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+.footer-logo img { display: block; width: 170px; height: auto; }
+footer p { font-size: 0.82rem; color: var(--text-muted); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size:0.82rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
+
+.divider { height:1px;background:linear-gradient(90deg,transparent,var(--border) 30%,var(--border) 70%,transparent);margin:0 6%; }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .why-layout,.about-layout,.contact-layout { grid-template-columns:1fr;gap:2.5rem; }
+  .why-visual,.about-visual { height:260px; }
+  .offers-grid { grid-template-columns:1fr; }
+  .stats-band { grid-template-columns:repeat(2,1fr); }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  .form-row { grid-template-columns:1fr; }
+  .why-visual { display:none; }
+  .gallery-mosaic-wrap { padding-left: 1rem; padding-right: 1rem; }
+  .gallery-bg-text {
+    bottom: 8%;
+    width: 82vw;
+    transform: translateX(-50%);
+  }
+  .gallery-bg-text span {
+    font-size: clamp(1.45rem, 5.8vw, 2.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+  .gallery-bg-text span + span { margin-top: 0.1rem; }
+  .services-image-strip { height: 160px; }
+  .strip-img { width: 220px; }
+  #hero { align-items: center; text-align: center; }
+  .hero-sub-block { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .hero-ctas { justify-content: center; }
+}
+
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)}
+}
+</style>
+
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<!-- AUTH MODAL -->
+<div class="auth-overlay" id="authOverlay" onclick="overlayClick(event)">
+  <div class="auth-modal" id="authModal">
+    <div class="auth-modal-bar"></div>
+    <button class="auth-close" onclick="closeModal()" title="Close">✕</button>
+    <div class="auth-modal-inner">
+
+      <div class="auth-logo">INTERIA<span>.</span></div>
+      <p class="auth-tagline">Secure Client Portal — Las Vegas IT Management</p>
+
+      <div class="auth-tabs">
+        <div class="auth-tab-slider" id="tabSlider"></div>
+        <button class="auth-tab-btn active" id="tabLogin" onclick="switchTab('login')">Log In</button>
+        <button class="auth-tab-btn" id="tabSignup" onclick="switchTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="auth-panel active" id="panelLogin">
+        <div class="auth-socials">
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google
+          </a>
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.054a19.9 19.9 0 0 0 5.993 3.03.079.079 0 0 0 .085-.026c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+            Microsoft
+          </a>
+        </div>
+        <div class="auth-divider">or continue with email</div>
+        <div class="auth-field">
+          <label>Email Address</label>
+          <div class="auth-input-wrap">
+            <input type="email" id="loginEmail" placeholder="you@@company.com" autocomplete="email"/>
+            <span class="auth-input-icon">✉️</span>
+          </div>
+        </div>
+        <div class="auth-field">
+          <label>Password</label>
+          <div class="auth-input-wrap">
+            <input type="password" id="loginPw" placeholder="••••••••" autocomplete="current-password"/>
+            <span class="auth-input-icon">🔐</span>
+            <button type="button" class="pw-toggle" onclick="togglePw('loginPw',this)">👁</button>
+          </div>
+        </div>
+        <a href="#" class="auth-forgot">Forgot your password?</a>
+        <button class="auth-submit" onclick="handleLogin()">Sign In to Portal →</button>
+        <p class="auth-switch">Don't have an account? <a href="#" onclick="switchTab('signup');return false;">Create one free</a></p>
+      </div>
+
+      <!-- SIGNUP -->
+      <div class="auth-panel" id="panelSignup">
+        <div class="auth-socials">
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google
+          </a>
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.054a19.9 19.9 0 0 0 5.993 3.03.079.079 0 0 0 .085-.026c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+            Microsoft
+          </a>
+        </div>
+        <div class="auth-divider">or create with email</div>
+        <div class="auth-name-row">
+          <div class="auth-field">
+            <label>First Name</label>
+            <div class="auth-input-wrap">
+              <input type="text" placeholder="John" autocomplete="given-name"/>
+              <span class="auth-input-icon">👤</span>
+            </div>
+          </div>
+          <div class="auth-field">
+            <label>Last Name</label>
+            <div class="auth-input-wrap">
+              <input type="text" placeholder="Smith" autocomplete="family-name"/>
+              <span class="auth-input-icon">👤</span>
+            </div>
+          </div>
+        </div>
+        <div class="auth-field">
+          <label>Business Email</label>
+          <div class="auth-input-wrap">
+            <input type="email" placeholder="you@@company.com" autocomplete="email"/>
+            <span class="auth-input-icon">✉️</span>
+          </div>
+        </div>
+        <div class="auth-field">
+          <label>Company Name</label>
+          <div class="auth-input-wrap">
+            <input type="text" placeholder="Your Company LLC" autocomplete="organization"/>
+            <span class="auth-input-icon">🏢</span>
+          </div>
+        </div>
+        <div class="auth-field">
+          <label>Password</label>
+          <div class="auth-input-wrap">
+            <input type="password" id="signupPw" placeholder="Create a strong password" autocomplete="new-password" oninput="checkStrength(this)"/>
+            <span class="auth-input-icon">🔐</span>
+            <button type="button" class="pw-toggle" onclick="togglePw('signupPw',this)">👁</button>
+          </div>
+          <div class="pw-strength-wrap" id="strengthWrap">
+            <div class="pw-strength-bar"><div class="pw-strength-fill" id="strengthFill"></div></div>
+            <span class="pw-strength-text" id="strengthText">Enter a password</span>
+          </div>
+        </div>
+        <label class="auth-check">
+          <input type="checkbox" required/>
+          I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        </label>
+        <button class="auth-submit" onclick="handleSignup()">Create My Account →</button>
+        <p class="auth-switch">Already have an account? <a href="#" onclick="switchTab('login');return false;">Sign in</a></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- NAV — Added "Home" link -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo" aria-label="Interia Technologies home">
+    <img src="http://localhost/images/interia-logo.png" alt="Interia Technologies" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#offers">Free Offers</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Switch to light theme" aria-label="Switch to light theme">
+      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M12 2.5v2.2M12 19.3v2.2M4.58 4.58l1.56 1.56M17.86 17.86l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.58 19.42l1.56-1.56M17.86 6.14l1.56-1.56" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20.25 14.28A8.1 8.1 0 0 1 9.72 3.75 8.65 8.65 0 1 0 20.25 14.28Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.7 4.2l.42 1.18 1.18.42-1.18.42-.42 1.18-.42-1.18-1.18-.42 1.18-.42.42-1.18Z" fill="currentColor"/>
+      </svg>
+    </button>
+    <a href="#contact" class="nav-cta">Get Started</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+    <!-- HERO — Modified text to match Image 2 -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <div class="hero-skyline">
+    <svg class="skyline-svg" viewBox="0 0 1400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0257B9" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#0257B9" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="buildingGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0257B9" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#0257B9" stop-opacity="0.15"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="370" width="1400" height="30" fill="url(#skyGrad)"/>
+      <rect x="0" y="180" width="90" height="220" fill="url(#buildingGrad)"/>
+      <rect x="5" y="140" width="18" height="40" fill="url(#buildingGrad)"/>
+      <rect x="100" y="220" width="60" height="180" fill="url(#buildingGrad)"/>
+      <rect x="170" y="100" width="80" height="300" fill="url(#buildingGrad)"/>
+      <rect x="175" y="80" width="12" height="30" fill="url(#buildingGrad)"/>
+      <rect x="260" y="160" width="50" height="240" fill="url(#buildingGrad)"/>
+      <rect x="320" y="200" width="70" height="200" fill="url(#buildingGrad)"/>
+      <polygon points="430,370 510,120 590,370" fill="url(#buildingGrad)"/>
+      <rect x="505" y="80" width="10" height="45" fill="url(#buildingGrad)"/>
+      <polygon points="640,370 660,200 680,370" fill="url(#buildingGrad)"/>
+      <rect x="657" y="160" width="6" height="45" fill="url(#buildingGrad)"/>
+      <rect x="635" y="290" width="50" height="6" fill="url(#buildingGrad)"/>
+      <rect x="643" y="250" width="34" height="6" fill="url(#buildingGrad)"/>
+      <rect x="700" y="130" width="65" height="240" fill="url(#buildingGrad)"/>
+      <rect x="703" y="100" width="15" height="35" fill="url(#buildingGrad)"/>
+      <rect x="775" y="170" width="55" height="200" fill="url(#buildingGrad)"/>
+      <rect x="840" y="200" width="45" height="170" fill="url(#buildingGrad)"/>
+      <rect x="900" y="250" width="20" height="120" fill="url(#buildingGrad)"/>
+      <ellipse cx="910" cy="245" rx="32" ry="32" fill="url(#buildingGrad)"/>
+      <rect x="950" y="150" width="55" height="220" fill="url(#buildingGrad)"/>
+      <rect x="955" y="120" width="10" height="35" fill="url(#buildingGrad)"/>
+      <rect x="1015" y="190" width="70" height="180" fill="url(#buildingGrad)"/>
+      <rect x="1095" y="110" width="85" height="260" fill="url(#buildingGrad)"/>
+      <rect x="1100" y="80" width="14" height="35" fill="url(#buildingGrad)"/>
+      <rect x="1190" y="200" width="60" height="170" fill="url(#buildingGrad)"/>
+      <rect x="1260" y="160" width="50" height="210" fill="url(#buildingGrad)"/>
+      <rect x="1320" y="220" width="80" height="150" fill="url(#buildingGrad)"/>
+    </svg>
+  </div>
+
+  <!-- MODIFIED HERO CONTENT — matches Image 2 layout -->
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Las Vegas — Local IT Experts
+    </div>
+
+    <h1 class="hero-headline">
+      Technology solutions<br/>
+      that <span class="accent">power your business.</span>
+    </h1>
+
+    <div class="hero-sub-block">
+      <div class="hero-sub-bar"></div>
+      <p class="hero-sub">
+        Enterprise-grade IT services with a local team and no extra cost for onsite support.
+      </p>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-chip"><span class="check">✔</span> Fast Response Times</div>
+      <div class="trust-chip"><span class="check">✔</span> Onsite Support Included</div>
+      <div class="trust-chip"><span class="check">✔</span> Enterprise-Grade Security</div>
+      <div class="trust-chip"><span class="check">✔</span> Local Las Vegas Team</div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">
+        <img class="btn-icon" src="http://localhost/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
+        Free IT Assessment
+      </a>
+      <a href="#offers" class="btn-secondary">
+        <img class="btn-icon" src="http://localhost/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
+        Free AI Workshops →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-item reveal">
+    <div class="stat-number" data-target="200">0</div>
+    <div class="stat-label">Businesses Served</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-number" data-target="99.9" data-decimal>0</div>
+    <div class="stat-label">Uptime SLA %</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-number"><span data-target="15" class="count-num">0</span>min</div>
+    <div class="stat-label">Avg Response Time</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-number"><span data-target="10" class="count-num">0</span>+</div>
+    <div class="stat-label">Years Experience</div>
+  </div>
+</div>
+    <section id="services">
+  <div class="section-label reveal">Our Services</div>
+  <h2 class="section-title reveal">Managed IT Built<br/>for Small Business</h2>
+  <p class="section-desc reveal">We deliver the same level of IT expertise used by large enterprises—tailored for small and mid-sized businesses in Las Vegas.</p>
+
+  <div class="services-image-strip reveal">
+    <div class="services-strip-track">
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=640&q=80" alt="IT technician at server rack" loading="lazy"/>
+        <div class="strip-caption">Server Installation</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=640&q=80" alt="IT team meeting" loading="lazy"/>
+        <div class="strip-caption">Team Support</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=640&q=80" alt="IT support specialist" loading="lazy"/>
+        <div class="strip-caption">On-Call Support</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=640&q=80" alt="Network infrastructure" loading="lazy"/>
+        <div class="strip-caption">Network Setup</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=640&q=80" alt="Cybersecurity monitoring" loading="lazy"/>
+        <div class="strip-caption">Security Operations</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=640&q=80" alt="Business IT consultation" loading="lazy"/>
+        <div class="strip-caption">IT Consultation</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=640&q=80" alt="Cloud computing setup" loading="lazy"/>
+        <div class="strip-caption">Cloud Migration</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=640&q=80" alt="Data center management" loading="lazy"/>
+        <div class="strip-caption">Data Center</div>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=640&q=80" alt="IT technician at server rack" loading="lazy"/>
+        <div class="strip-caption">Server Installation</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=640&q=80" alt="IT team meeting" loading="lazy"/>
+        <div class="strip-caption">Team Support</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=640&q=80" alt="IT support specialist" loading="lazy"/>
+        <div class="strip-caption">On-Call Support</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=640&q=80" alt="Network infrastructure" loading="lazy"/>
+        <div class="strip-caption">Network Setup</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=640&q=80" alt="Cybersecurity monitoring" loading="lazy"/>
+        <div class="strip-caption">Security Operations</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=640&q=80" alt="Business IT consultation" loading="lazy"/>
+        <div class="strip-caption">IT Consultation</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=640&q=80" alt="Cloud computing setup" loading="lazy"/>
+        <div class="strip-caption">Cloud Migration</div>
+      </div>
+      <div class="strip-img">
+        <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=640&q=80" alt="Data center management" loading="lazy"/>
+        <div class="strip-caption">Data Center</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">
+        <img src="http://localhost/images/icon-laptop.svg" alt="" aria-hidden="true" />
+      </div>
+      <h3>Managed IT Services</h3>
+      <p>Proactive monitoring, support, and maintenance to keep your systems running smoothly — 24/7, without the headaches.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">
+        <img src="http://localhost/images/icon-cloud.svg" alt="" aria-hidden="true" />
+      </div>
+      <h3>Cloud & Server Management</h3>
+      <p>We manage your cloud environments, servers, and infrastructure so you can focus on running your business, not your tech stack.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">
+        <img src="http://localhost/images/icon-security.svg" alt="" aria-hidden="true" />
+      </div>
+      <h3>Cybersecurity</h3>
+      <p>Advanced protection against modern threats, using enterprise-grade tools and practices typically reserved for large corporations.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">
+        <img src="http://localhost/images/icon-handshake.svg" alt="" aria-hidden="true" />
+      </div>
+      <h3>Onsite + Remote Support</h3>
+      <p>Unlike others, we include onsite support at no additional cost. Real hands-on help, right when and where you need it.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+    <section id="why">
+  <div class="why-layout">
+    <div>
+      <div class="section-label reveal">Why Interia</div>
+      <h2 class="section-title reveal">The Best of<br/>Both Worlds</h2>
+      <p class="section-desc reveal" style="margin-bottom:2rem;">Most IT providers are either expensive enterprise firms or limited small vendors. We bridge the gap — delivering big-firm expertise with local, personal service.</p>
+
+      <ul class="why-list">
+        <li class="why-item reveal">
+          <div class="wi-icon">
+            <img src="http://localhost/images/icon-prize.svg" alt="" aria-hidden="true" />
+          </div>
+          <div>
+            <h4>Enterprise-Level Expertise</h4>
+            <p>Real industry leaders with Fortune 500 experience, serving your local business.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-1">
+          <div class="wi-icon">
+            <img src="http://localhost/images/icon-location.svg" alt="" aria-hidden="true" />
+          </div>
+          <div>
+            <h4>Local Las Vegas Presence</h4>
+            <p>Hands-on onsite support from a team that knows your city, your market, your needs.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-2">
+          <div class="wi-icon">
+            <img src="http://localhost/images/icon-fees.svg" alt="" aria-hidden="true" />
+          </div>
+          <div>
+            <h4>No Hidden Fees</h4>
+            <p>Transparent, predictable pricing. No surprise charges. Ever.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-3">
+          <div class="wi-icon">
+            <img src="http://localhost/images/icon-power.svg" alt="" aria-hidden="true" />
+          </div>
+          <div>
+            <h4>Built for Tech-Reliant Businesses</h4>
+            <p>Designed for companies where downtime is not an option and performance is everything.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="why-visual reveal">
+      <div class="city-card">
+        <img src="http://localhost/images/best-of-both-worlds.png" alt="Las Vegas skyline with technology icons" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="gallery" aria-label="Our people make the difference">
+  <div class="gallery-mosaic-wrap reveal" id="mosaicWrap">
+    <div class="gallery-mosaic mosaic-hidden" id="galleryMosaic">
+      <div class="mosaic-card shape-left-top">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=320&q=80" alt="Quiet office workspace" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-left-bottom tone-muted">
+        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=320&q=80" alt="Team presentation room" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-team">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=420&q=80" alt="People collaborating in a meeting" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-desk">
+        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=420&q=80" alt="Shared work desk with laptops" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-office">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=420&q=80" alt="Modern office interior" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-coffee">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=420&q=80" alt="Coffee and notebook on desk" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-window">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=420&q=80" alt="Laptop beside a bright window" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-people">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=420&q=80" alt="Coworkers discussing a project" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-meeting">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=420&q=80" alt="Business meeting at office table" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-notes">
+        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=320&q=80" alt="Hand writing notes" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-books">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=320&q=80" alt="Business books stacked on a table" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-laptop tone-muted">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=320&q=80" alt="Minimal laptop workspace" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-student">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=320&q=80" alt="Person working with laptop" loading="lazy"/>
+      </div>
+
+      <div class="mosaic-card shape-culture">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=320&q=80" alt="Two teammates in conversation" loading="lazy"/>
+      </div>
+
+      <div class="gallery-bg-text" aria-hidden="true">
+        <span>Trusted by creatives and leaders</span>
+        <span>from various industries</span>
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="offers">
+  <div class="section-label reveal">Complimentary</div>
+  <h2 class="section-title reveal">Start for Free.<br/>See the Value.</h2>
+  <p class="section-desc reveal">No commitment needed. Experience what Interia Technologies can do for your business before signing anything.</p>
+
+  <div class="offers-grid">
+    <div class="offer-card gold reveal">
+      <div class="offer-icon">
+        <img src="http://localhost/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
+      </div>
+      <div class="offer-tag gold-tag">Complimentary</div>
+      <h3>Free IT Assessment</h3>
+      <p>Let our experts take a comprehensive look at your current IT infrastructure. We'll identify vulnerabilities, inefficiencies, and opportunities — then give you a clear, honest report. No strings attached.</p>
+      <a href="#contact" class="btn-primary" style="width:fit-content;margin-top:0.5rem;">Book Your Assessment →</a>
+    </div>
+    <div class="offer-card blue reveal reveal-delay-1">
+      <div class="offer-icon">
+        <img src="http://localhost/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
+      </div>
+      <div class="offer-tag blue-tag">Workshop</div>
+      <h3>Free AI Workshops</h3>
+      <p>Learn how AI can automate tasks, improve efficiency, and give your business a competitive edge. Our hands-on workshops are designed for business owners and teams — no technical background required.</p>
+      <a href="#contact" class="btn-secondary" style="width:fit-content;margin-top:0.5rem;">Reserve Your Spot →</a>
+    </div>
+  </div>
+</section>
+    <section id="about">
+  <div class="about-layout">
+    <div class="about-visual reveal">
+      <img src="http://localhost/images/about-interia.png" alt="Connected city skyline representing Interia Technologies" loading="lazy" />
+    </div>
+
+    <div>
+      <div class="section-label reveal">Who We Are</div>
+      <h2 class="section-title reveal">About<br/>Interia Technologies</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;" class="reveal">
+        Interia Technologies was founded with one purpose: to make world-class IT accessible to every business in Las Vegas, regardless of size. We saw a gap — small businesses were either overpaying for enterprise firms that didn't understand their scale, or underserved by IT vendors who lacked the depth to handle real challenges.
+      </p>
+      <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:2rem;" class="reveal">
+        We built a team of true industry leaders — professionals who've worked inside the largest enterprise environments in the country — and redirected that expertise toward businesses that need it most: the ambitious, growing companies right here in the Las Vegas Valley.
+      </p>
+
+      <div class="mv-cards">
+        <div class="mv-card reveal">
+          <h4>Our Mission</h4>
+          <p>To empower Las Vegas businesses with enterprise-grade technology solutions, delivered with the personal attention and transparency that only a local partner can provide.</p>
+        </div>
+        <div class="mv-card reveal reveal-delay-1">
+          <h4>Our Vision</h4>
+          <p>A Las Vegas where every growing business operates with the same technological edge as the world's largest corporations — where technology becomes a strategic advantage, not a daily burden.</p>
+        </div>
+      </div>
+
+      <div class="team-note reveal">
+        <strong><img src="http://localhost/images/icon-place.svg" alt="" aria-hidden="true" /> Born and based in Las Vegas, NV.</strong> Our team lives here, works here, and is invested in the success of this community. When you partner with Interia, you're not calling a remote help desk — you're calling your neighbors.
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="contact">
+    <div class="section-label reveal">Get In Touch</div>
+    <h2 class="section-title reveal">Let's Talk<br />About Your IT</h2>
+    <p class="section-desc reveal">Ready to take IT off your plate? Fill out the form and one of our Las Vegas-based
+        experts will reach out within one business day.</p>
+
+    <div class="contact-layout">
+        <div class="contact-info">
+            <div class="contact-block reveal">
+                <div class="cb-icon">
+                    <img src="http://localhost/images/icon-location.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                    <h5>Location</h5>
+                    <p>Las Vegas, Nevada</p>
+                </div>
+            </div>
+            <div class="contact-block reveal reveal-delay-1">
+                <div class="cb-icon">
+                    <img src="http://localhost/images/icon-phone.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                    <h5>Phone</h5>
+                    <p>(702) 279 - 6711</p>
+                </div> 
+            </div>
+            <div class="contact-block reveal reveal-delay-2">
+                <div class="cb-icon">
+                    <img src="http://localhost/images/icon-email.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                    <h5>Email</h5>
+                    <p>info@interiatechnologies.com</p>
+                </div>
+            </div>
+            <div class="contact-block reveal reveal-delay-3">
+                <div class="cb-icon">
+                    <img src="http://localhost/images/icon-time.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                    <h5>Response Time</h5>
+                    <p>Within 15 minutes during business hours</p>
+                </div>
+            </div>
+            <div class="contact-block reveal reveal-delay-4">
+                <div class="cb-icon">
+                    <img src="http://localhost/images/icon-handshake.svg" alt="" aria-hidden="true" />
+                </div>
+                <div>
+                    <h5>Onsite Support</h5>
+                    <p>Available across the greater Las Vegas Valley — included at no extra cost</p>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" placeholder="John" required />
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" placeholder="Smith" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Business Email</label>
+                    <input type="email" name="email" placeholder="john@@company.com" required />
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="(702) 555-0000" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Company Name</label>
+                <input type="text" name="company" placeholder="Your Business Name" />
+            </div>
+            <div class="form-group">
+                <label>How Can We Help?</label>
+                <select name="service">
+                    <option value="">Select a service...</option>
+                    <option>Free IT Assessment</option>
+                    <option>Free AI Workshop</option>
+                    <option>Managed IT Services</option>
+                    <option>Cloud & Server Management</option>
+                    <option>Cybersecurity</option>
+                    <option>Onsite + Remote Support</option>
+                    <option>General Inquiry</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tell Us About Your Business</label>
+                <textarea name="message"
+                    placeholder="Briefly describe your current IT setup, biggest challenges, or what you'd like to improve..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+    </div>
+</section>
+</main>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="http://localhost/images/interia-logo.png" alt="Interia Technologies" />
+  </div>
+  <p>© 2026 Interia Technologies. Las Vegas, NV. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#offers">Free Offers</a>
+  </div>
+</footer>
+<script>
+/* Cursor glow */
+const glow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+});
+
+/* Theme Toggle */
+const htmlEl = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+
+function syncThemeToggle(theme) {
+  if (!themeToggle) return;
+
+  const nextTheme = theme === 'dark' ? 'light' : 'dark';
+  themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+  themeToggle.setAttribute('title', `Switch to ${nextTheme} theme`);
+}
+
+(function() {
+  const saved = localStorage.getItem('interia-theme') || 'dark';
+  htmlEl.setAttribute('data-theme', saved);
+  syncThemeToggle(saved);
+})();
+
+function toggleTheme() {
+  const current = htmlEl.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', next);
+  localStorage.setItem('interia-theme', next);
+  syncThemeToggle(next);
+}
+
+/* Navbar scroll */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* Scroll reveal */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* Counter animation */
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const decimal = el.dataset.decimal !== undefined;
+  const duration = 1800;
+  const start = performance.now();
+  function step(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    const val = target * ease;
+    el.textContent = decimal ? val.toFixed(1) : Math.floor(val);
+    if (t < 1) requestAnimationFrame(step);
+    else el.textContent = decimal ? target.toFixed(1) : target;
+  }
+  requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('[data-target]').forEach(animateCounter);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stats-band').forEach(el => counterObserver.observe(el));
+
+/* Form submit */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '✅ Message Sent! We\'ll be in touch shortly.';
+  btn.style.background = '#22c55e';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 5000);
+}
+
+/* Nav active link — highlight Home when at top */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = 'hero'; // default to hero (home)
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+  navLinks.forEach(a => {
+    const href = a.getAttribute('href');
+    a.style.color = (href === '#' + current) ? 'var(--accent)' : '';
+  });
+});
+
+/* Auth Modal */
+function openModal(tab) {
+  document.getElementById('authOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  switchTab(tab || 'login');
+}
+function closeModal() {
+  document.getElementById('authOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function overlayClick(e) {
+  if (e.target === document.getElementById('authOverlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function switchTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('tabLogin').classList.toggle('active', isLogin);
+  document.getElementById('tabSignup').classList.toggle('active', !isLogin);
+  document.getElementById('tabSlider').classList.toggle('right', !isLogin);
+  document.getElementById('panelLogin').classList.toggle('active', isLogin);
+  document.getElementById('panelSignup').classList.toggle('active', !isLogin);
+}
+
+function togglePw(id, btn) {
+  const input = document.getElementById(id);
+  const isText = input.type === 'text';
+  input.type = isText ? 'password' : 'text';
+  btn.textContent = isText ? '👁' : '🙈';
+}
+
+function checkStrength(input) {
+  const val = input.value;
+  const wrap = document.getElementById('strengthWrap');
+  const fill = document.getElementById('strengthFill');
+  const text = document.getElementById('strengthText');
+  wrap.classList.toggle('visible', val.length > 0);
+  let score = 0;
+  if (val.length >= 8) score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  const levels = [
+    { w:'20%', bg:'#ef4444', label:'Weak' },
+    { w:'45%', bg:'#f97316', label:'Fair' },
+    { w:'70%', bg:'#eab308', label:'Good' },
+    { w:'100%', bg:'#22c55e', label:'Strong' },
+  ];
+  const lvl = levels[Math.max(0, score - 1)];
+  fill.style.width = lvl.w;
+  fill.style.background = lvl.bg;
+  text.textContent = lvl.label;
+  text.style.color = lvl.bg;
+}
+
+function handleLogin() {
+  const btn = document.querySelector('#panelLogin .auth-submit');
+  const email = document.getElementById('loginEmail').value;
+  if (!email) { shakeModal(); return; }
+  btn.textContent = '⏳ Signing in...'; btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✅ Welcome back!'; btn.style.background = '#22c55e';
+    setTimeout(() => { closeModal(); btn.textContent = 'Sign In to Portal →'; btn.style.background = ''; btn.disabled = false; }, 1800);
+  }, 1400);
+}
+
+function handleSignup() {
+  const btn = document.querySelector('#panelSignup .auth-submit');
+  btn.textContent = '⏳ Creating account...'; btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✅ Account Created!'; btn.style.background = '#22c55e';
+    setTimeout(() => { closeModal(); btn.textContent = 'Create My Account →'; btn.style.background = ''; btn.disabled = false; }, 1800);
+  }, 1600);
+}
+
+function shakeModal() {
+  const m = document.getElementById('authModal');
+  m.style.animation = 'shake 0.4s ease';
+  setTimeout(() => m.style.animation = '', 400);
+}
+
+/* ═══════════════════════════════════════════════
+   GALLERY MOSAIC — Scroll-triggered reveal
+   ═══════════════════════════════════════════════ */
+(function() {
+  const mosaic = document.getElementById('galleryMosaic');
+  if (!mosaic) return;
+
+  const cards = mosaic.querySelectorAll('.mosaic-card');
+
+  const mosaicObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        mosaic.classList.remove('mosaic-hidden');
+        mosaic.classList.add('mosaic-visible');
+
+        cards.forEach((card, i) => {
+          card.style.animationDelay = `${i * 55}ms`;
+        });
+
+        mosaicObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  mosaicObserver.observe(mosaic);
+})();
+
+/* Ensure page loads at top — no auto-scroll to gallery */
+if (window.location.hash === '') {
+  window.scrollTo(0, 0);
+}
+history.scrollRestoration = 'manual';
+window.addEventListener('load', () => {
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+});
+</script>
+</body>
+</html>
