@@ -13,7 +13,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Switch to light theme" aria-label="Switch to light theme">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Switch to dark theme" aria-label="Switch to dark theme">
       <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
         <path d="M12 2.5v2.2M12 19.3v2.2M4.58 4.58l1.56 1.56M17.86 17.86l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.58 19.42l1.56-1.56M17.86 6.14l1.56-1.56" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>

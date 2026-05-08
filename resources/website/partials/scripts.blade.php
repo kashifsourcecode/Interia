@@ -19,7 +19,7 @@ function syncThemeToggle(theme) {
 }
 
 (function() {
-  const saved = localStorage.getItem('interia-theme') || 'dark';
+  const saved = localStorage.getItem('interia-theme') || 'light';
   htmlEl.setAttribute('data-theme', saved);
   syncThemeToggle(saved);
 })();
