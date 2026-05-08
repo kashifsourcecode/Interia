@@ -1,5 +1,10 @@
 <!-- HERO — Modified text to match Image 2 -->
 <section id="hero">
+  <div class="hero-video" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="{{ asset('storage/videos/it-video.mp4') }}" type="video/mp4" />
+    </video>
+  </div>
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="orb orb1"></div>
