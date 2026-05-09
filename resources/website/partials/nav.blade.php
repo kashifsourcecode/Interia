@@ -23,7 +23,6 @@
         <path d="M16.7 4.2l.42 1.18 1.18.42-1.18.42-.42 1.18-.42-1.18-1.18-.42 1.18-.42.42-1.18Z" fill="currentColor"/>
       </svg>
     </button>
-    <a href="#contact" class="nav-cta">Get Started</a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>

@@ -3,9 +3,11 @@
 @section('content')
     @include('website::sections.hero')
     @include('website::sections.services')
+    @include('website::sections.ai')
     @include('website::sections.why')
     @include('website::sections.gallery')
     @include('website::sections.offers')
+    @include('website::sections.pricing')
     @include('website::sections.about')
     @include('website::sections.contact')
 @endsection
