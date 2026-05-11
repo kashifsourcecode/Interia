@@ -47,6 +47,24 @@ return [
             'report' => false,
         ],
 
+        /*
+        |--------------------------------------------------------------------------
+        | Webroot (public/) uploads — no storage symlink required
+        |--------------------------------------------------------------------------
+        |
+        | Filament FileUpload uses this disk so URLs are /service-carousel/... not
+        | /storage/service-carousel/... (avoids 404 when public/storage is missing).
+        |
+        */
+        'webroot' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => rtrim(env('APP_URL', 'http://localhost'), '/'),
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

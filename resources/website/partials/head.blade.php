@@ -1,5 +1,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <title>Interia Technologies — Managed IT for Las Vegas Businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link
@@ -1446,13 +1447,21 @@
             max-width: 780px;
             margin: 0 auto 3.5rem;
         }
-        .ai-header .section-label { justify-content: center; }
-        .ai-header .section-label::before { display: none; }
+
+        .ai-header .section-label {
+            justify-content: center;
+        }
+
+        .ai-header .section-label::before {
+            display: none;
+        }
+
         .ai-title {
             font-size: clamp(2rem, 4.2vw, 3.4rem);
             margin-bottom: 1rem;
             text-transform: uppercase;
         }
+
         .ai-subtitle {
             font-size: 1rem;
             color: var(--text-muted);
@@ -1486,11 +1495,31 @@
         }
 
         /* Per-card exact dimensions (design spec) */
-        .ai-step--detect   { width: 179px;   min-height: 203.5px;  }
-        .ai-step--analyze  { width: 283px;   min-height: 223px;    }
-        .ai-step--automate { width: 283px;   min-height: 159px;    }
-        .ai-step--secure   { width: 231px;   min-height: 177px;    }
-        .ai-step--optimize { width: 206px;   min-height: 222.75px; }
+        .ai-step--detect {
+            width: 179px;
+            min-height: 203.5px;
+        }
+
+        .ai-step--analyze {
+            width: 283px;
+            min-height: 223px;
+        }
+
+        .ai-step--automate {
+            width: 283px;
+            min-height: 159px;
+        }
+
+        .ai-step--secure {
+            width: 231px;
+            min-height: 177px;
+        }
+
+        .ai-step--optimize {
+            width: 206px;
+            min-height: 222.75px;
+        }
+
         .ai-step:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 28px rgba(2, 87, 185, 0.12);
@@ -1502,6 +1531,7 @@
             align-items: center;
             gap: 0.55rem;
         }
+
         .ai-step-icon {
             display: inline-flex;
             align-items: center;
@@ -1511,12 +1541,14 @@
             color: var(--accent);
             flex-shrink: 0;
         }
+
         .ai-step-icon svg,
         .ai-step-icon img {
             width: 20px;
             height: 20px;
             display: block;
         }
+
         .ai-step-label {
             font-family: 'DM Mono', monospace;
             font-size: 0.7rem;
@@ -1539,6 +1571,7 @@
             overflow: hidden;
             vertical-align: top;
         }
+
         .ai-step-title::before {
             content: attr(data-text);
             position: absolute;
@@ -1549,21 +1582,26 @@
             transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
             pointer-events: none;
         }
+
         .ai-step-title-inner {
             display: inline-block;
             transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
         }
+
         .ai-step:hover .ai-step-title-inner {
             transform: translateY(100%);
         }
+
         .ai-step:hover .ai-step-title::before {
             transform: translateY(0);
         }
+
         .ai-step-desc {
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.55;
         }
+
         .ai-step-stat {
             margin-top: 0.5rem;
             display: flex;
@@ -1571,12 +1609,14 @@
             gap: 0.35rem;
             color: var(--accent);
         }
+
         .ai-step-stat strong {
             font-family: 'DM Sans', sans-serif;
             font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: -0.01em;
         }
+
         .ai-step-stat span {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -1591,6 +1631,11 @@
             align-items: center;
             max-width: 1280px;
             margin: 0 auto;
+        }
+
+        .ai-framework.ai-framework--single {
+            grid-template-columns: 1fr;
+            max-width: 720px;
         }
 
         .ai-dashboard-img {
@@ -1608,6 +1653,7 @@
             flex-direction: column;
             gap: 1.2rem;
         }
+
         .ai-framework-content .section-label {
             font-family: 'DM Sans', sans-serif;
             font-weight: 700;
@@ -1618,14 +1664,17 @@
             text-transform: uppercase;
             margin-bottom: 0;
         }
+
         .ai-framework-content .section-label::before {
             display: none;
         }
+
         .ai-framework-desc {
             font-size: 0.95rem;
             color: var(--text-muted);
             line-height: 1.7;
         }
+
         .ai-framework-list {
             list-style: none;
             display: flex;
@@ -1634,6 +1683,7 @@
             padding: 0;
             margin: 0.5rem 0 0;
         }
+
         .ai-framework-list li {
             display: flex;
             align-items: center;
@@ -1643,6 +1693,7 @@
             color: var(--text);
             line-height: 1.4;
         }
+
         .ai-check {
             flex-shrink: 0;
             width: 22px;
@@ -1667,6 +1718,11 @@
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
             align-items: stretch;
+        }
+
+        .why-layout.why-layout--single {
+            grid-template-columns: 1fr;
+            max-width: 720px;
         }
 
         .why-visual {
@@ -1750,8 +1806,8 @@
         }
 
         /* ═══════════════════════════════════════════════
-       GALLERY — PEOPLE COLLAGE
-       ═══════════════════════════════════════════════ */
+               GALLERY — PEOPLE COLLAGE
+               ═══════════════════════════════════════════════ */
         #gallery {
             background: var(--bg);
             overflow: hidden;
@@ -2456,6 +2512,11 @@
             align-items: stretch;
         }
 
+        .about-layout.about-layout--single {
+            grid-template-columns: 1fr;
+            max-width: 720px;
+        }
+
         .about-visual {
             position: relative;
             border-radius: 16px;
@@ -2553,6 +2614,20 @@
             grid-template-columns: 1fr 1.3fr;
             gap: 5rem;
             align-items: start;
+        }
+
+        .contact-layout.contact-layout--single {
+            grid-template-columns: 1fr;
+            max-width: 640px;
+        }
+
+        .contact-form-feedback {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-strong);
         }
 
         .contact-info {

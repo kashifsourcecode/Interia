@@ -73,19 +73,78 @@ const counterObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.stats-band').forEach(el => counterObserver.observe(el));
 
-/* Form submit */
-function handleSubmit(e) {
+/* Contact form submit */
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = '✅ Message Sent! We\'ll be in touch shortly.';
-  btn.style.background = '#22c55e';
+  const form = e.target;
+  const btn = form.querySelector('.form-submit');
+  const feedback = form.querySelector('.contact-form-feedback');
+  const originalLabel = btn.textContent;
+  const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
+
+  if (feedback) {
+    feedback.hidden = true;
+    feedback.textContent = '';
+    feedback.style.color = '';
+  }
+
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Send Message →';
-    btn.style.background = '';
+  btn.textContent = 'Sending…';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-TOKEN': csrf,
+      },
+      body: new FormData(form),
+      credentials: 'same-origin',
+    });
+
+    if (response.status === 422) {
+      const body = await response.json();
+      const messages = Object.values(body.errors || {}).flat();
+      throw new Error(messages[0] || 'Please review the form fields and try again.');
+    }
+
+    if (response.status === 429) {
+      throw new Error('You are sending messages too quickly. Please try again in a minute.');
+    }
+
+    if (!response.ok) {
+      throw new Error('Something went wrong. Please try again in a moment.');
+    }
+
+    const data = await response.json().catch(() => ({}));
+    const successMessage = data.message || "Message sent! We'll be in touch shortly.";
+
+    btn.textContent = '✅ Message Sent!';
+    btn.style.background = '#22c55e';
+    form.reset();
+
+    if (feedback) {
+      feedback.hidden = false;
+      feedback.textContent = successMessage;
+      feedback.style.color = '#15803d';
+    }
+
+    setTimeout(() => {
+      btn.textContent = originalLabel;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 5000);
+  } catch (err) {
+    btn.textContent = originalLabel;
     btn.disabled = false;
-    e.target.reset();
-  }, 5000);
+
+    if (feedback) {
+      feedback.hidden = false;
+      feedback.textContent = err.message || 'Something went wrong. Please try again.';
+      feedback.style.color = '#dc2626';
+    }
+  }
 }
 
 /* Nav active link — highlight Home when at top */
