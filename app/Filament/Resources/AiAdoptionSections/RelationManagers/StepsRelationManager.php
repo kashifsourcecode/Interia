@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules\Unique;
 
 class StepsRelationManager extends RelationManager
 {
@@ -30,26 +31,38 @@ class StepsRelationManager extends RelationManager
 
     protected static ?string $title = 'Process steps';
 
+    protected static ?string $description = 'The design renders an ascending staircase of exactly five cards. Each card must use a unique staircase position (Detect → Analyze → Automate → Secure → Optimize) and be sorted left-to-right by Sort order.';
+
     protected static bool $shouldSkipAuthorization = true;
 
     protected static bool $shouldCheckPolicyExistence = false;
 
+    /**
+     * @return array<string, string>
+     */
+    protected static function staircaseOptions(): array
+    {
+        return [
+            'detect' => 'Step 1 — Detect (lowest, far-left)',
+            'analyze' => 'Step 2 — Analyze (one step up)',
+            'automate' => 'Step 3 — Automate (middle)',
+            'secure' => 'Step 4 — Secure (one step from top)',
+            'optimize' => 'Step 5 — Optimize (highest, far-right)',
+        ];
+    }
+
     public function form(Schema $schema): Schema
     {
-        $layoutOptions = [
-            'detect' => 'Detect — compact (179px)',
-            'analyze' => 'Analyze — wide (283px)',
-            'automate' => 'Automate — wide, shorter',
-            'secure' => 'Secure — medium width',
-            'optimize' => 'Optimize — tall narrow',
-        ];
+        $sectionId = (int) $this->getOwnerRecord()->getKey();
 
         return $schema
             ->components([
                 TextInput::make('sort_order')
+                    ->label('Sort order (left → right)')
                     ->numeric()
                     ->default(0)
-                    ->required(),
+                    ->required()
+                    ->helperText('1 = leftmost / lowest step. The staircase ascends as this number increases.'),
                 TextInput::make('step_label')
                     ->required()
                     ->maxLength(64)
@@ -61,12 +74,21 @@ class StepsRelationManager extends RelationManager
                     ->required()
                     ->columnSpanFull(),
                 Select::make('style_key')
-                    ->label('Card layout')
-                    ->options($layoutOptions)
+                    ->label('Staircase position')
+                    ->options(self::staircaseOptions())
                     ->default('detect')
                     ->required()
                     ->native(false)
-                    ->helperText('Controls card width to match the original design.'),
+                    ->unique(
+                        table: 'ai_adoption_steps',
+                        column: 'style_key',
+                        ignoreRecord: true,
+                        modifyRuleUsing: fn (Unique $rule) => $rule->where('ai_adoption_section_id', $sectionId),
+                    )
+                    ->validationMessages([
+                        'unique' => 'Another step in this section already uses this staircase position. Each of the five positions can only be used once.',
+                    ])
+                    ->helperText('Controls where the card sits along the ascending arrow. Each of the five positions can only be used once per section.'),
                 FileUpload::make('icon_file')
                     ->label('Upload icon')
                     ->disk('webroot')
@@ -106,11 +128,15 @@ class StepsRelationManager extends RelationManager
         /** @var self $rm */
         $rm = $this;
 
+        $staircaseLabels = self::staircaseOptions();
+
         return $table
             ->recordTitleAttribute('title')
             ->reorderable('sort_order')
+            ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('sort_order')
+                    ->label('Order')
                     ->numeric()
                     ->sortable(),
                 ImageColumn::make('icon_path')
@@ -123,12 +149,14 @@ class StepsRelationManager extends RelationManager
 
                         return $url !== '' ? $url : null;
                     }),
-                TextColumn::make('step_label'),
+                TextColumn::make('step_label')
+                    ->label('Label'),
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('style_key')
+                    ->label('Staircase position')
                     ->badge()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->formatStateUsing(fn (?string $state): string => $staircaseLabels[$state] ?? (string) $state),
             ])
             ->filters([
                 //

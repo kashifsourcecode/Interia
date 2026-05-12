@@ -1471,58 +1471,94 @@
         }
 
         .ai-steps-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
             max-width: 1240px;
-            margin: 0 auto 4rem;
-            align-items: flex-start;
+            margin: 0 auto 5rem;
+            padding: 3.5rem 0.75rem 1.5rem;
+            align-items: end;
+        }
+
+        /* Ascending arrow line on top of the cards */
+        .ai-steps-line {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            overflow: visible;
+        }
+
+        .ai-steps-line-stroke {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vector-effect: non-scaling-stroke;
+            filter: drop-shadow(0 6px 14px rgba(2, 87, 185, 0.32));
+            opacity: 0;
+            stroke-dasharray: 1300;
+            stroke-dashoffset: 1300;
+            transition: opacity 0.5s ease, stroke-dashoffset 1.6s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .ai-steps-grid.in-view .ai-steps-line-stroke {
+            opacity: 1;
+            stroke-dashoffset: 0;
+        }
+
+        .ai-steps-line-arrow {
+            fill: var(--accent);
         }
 
         .ai-step {
-            background: var(--accent-soft);
+            position: relative;
+            z-index: 1;
+            background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
+            border-radius: 12px;
+            padding: 1.1rem 1.1rem 1.2rem;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            flex: 0 0 auto;
-            align-self: flex-start;
+            gap: 0.55rem;
             box-sizing: border-box;
+            box-shadow: 0 8px 24px rgba(2, 11, 20, 0.18);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.4s ease;
         }
 
-        /* Per-card exact dimensions (design spec) */
+        [data-theme="light"] .ai-step {
+            background: #FFFFFF;
+            box-shadow: 0 10px 30px rgba(2, 87, 185, 0.10), 0 2px 6px rgba(2, 11, 20, 0.05);
+        }
+
+        /* Staircase positioning — each card sits progressively higher */
         .ai-step--detect {
-            width: 179px;
-            min-height: 203.5px;
+            margin-bottom: 0;
         }
 
         .ai-step--analyze {
-            width: 283px;
-            min-height: 223px;
+            margin-bottom: 80px;
         }
 
         .ai-step--automate {
-            width: 283px;
-            min-height: 159px;
+            margin-bottom: 160px;
         }
 
         .ai-step--secure {
-            width: 231px;
-            min-height: 177px;
+            margin-bottom: 240px;
         }
 
         .ai-step--optimize {
-            width: 206px;
-            min-height: 222.75px;
+            margin-bottom: 320px;
         }
 
         .ai-step:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(2, 87, 185, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 34px rgba(2, 87, 185, 0.18);
             border-color: var(--border-strong);
         }
 
@@ -1536,16 +1572,19 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 26px;
-            height: 26px;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-strong);
             color: var(--accent);
             flex-shrink: 0;
         }
 
         .ai-step-icon svg,
         .ai-step-icon img {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             display: block;
         }
 
@@ -1561,15 +1600,16 @@
         .ai-step-title {
             font-family: 'DM Sans', sans-serif;
             font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: 0;
-            text-transform: uppercase;
+            font-size: 1.35rem;
+            letter-spacing: -0.01em;
+            text-transform: none;
             color: var(--text);
-            line-height: 1.2;
+            line-height: 1.15;
             position: relative;
             display: inline-block;
             overflow: hidden;
             vertical-align: top;
+            margin-top: 0.15rem;
         }
 
         .ai-step-title::before {
@@ -1597,13 +1637,13 @@
         }
 
         .ai-step-desc {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
-            line-height: 1.55;
+            line-height: 1.5;
         }
 
         .ai-step-stat {
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
             display: flex;
             align-items: baseline;
             gap: 0.35rem;
@@ -1612,13 +1652,13 @@
 
         .ai-step-stat strong {
             font-family: 'DM Sans', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.01em;
         }
 
         .ai-step-stat span {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             font-weight: 500;
         }
@@ -2630,6 +2670,32 @@
             border: 1px solid var(--border-strong);
         }
 
+        .form-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background-color 220ms ease, color 220ms ease, transform 120ms ease;
+        }
+
+        .form-submit.is-success {
+            background: #16a34a;
+            color: #fff;
+        }
+
+        .form-submit-icon {
+            display: inline-block;
+            flex-shrink: 0;
+            stroke: currentColor;
+            animation: form-submit-pop 360ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        @keyframes form-submit-pop {
+            0% { transform: scale(0.4); opacity: 0; }
+            60% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -2842,6 +2908,14 @@
 
             .ai-steps-grid {
                 max-width: 760px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+                padding-top: 0;
+                align-items: stretch;
+            }
+
+            .ai-steps-line {
+                display: none;
             }
 
             .ai-step,
@@ -2850,10 +2924,10 @@
             .ai-step--automate,
             .ai-step--secure,
             .ai-step--optimize {
-                flex: 1 1 220px;
+                margin-bottom: 0;
                 width: auto;
                 min-height: 0;
-                max-width: 280px;
+                max-width: none;
             }
 
             .ai-framework {
@@ -2911,7 +2985,9 @@
 
             .ai-steps-grid {
                 max-width: 540px;
-                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding-top: 0;
             }
 
             .ai-step,
@@ -2920,10 +2996,10 @@
             .ai-step--automate,
             .ai-step--secure,
             .ai-step--optimize {
-                flex: 1 1 200px;
+                margin-bottom: 0;
                 width: auto;
                 min-height: 0;
-                max-width: 260px;
+                max-width: none;
             }
 
             .ai-framework {
@@ -3010,6 +3086,7 @@
         @media (max-width: 540px) {
             .ai-steps-grid {
                 max-width: 380px;
+                grid-template-columns: 1fr;
             }
 
             .ai-step,
@@ -3018,7 +3095,7 @@
             .ai-step--automate,
             .ai-step--secure,
             .ai-step--optimize {
-                flex: 1 1 100%;
+                margin-bottom: 0;
                 width: 100%;
                 min-height: 0;
                 max-width: 100%;

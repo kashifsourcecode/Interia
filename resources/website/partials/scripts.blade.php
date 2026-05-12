@@ -74,12 +74,14 @@ const counterObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.stats-band').forEach(el => counterObserver.observe(el));
 
 /* Contact form submit */
+const CONTACT_SUCCESS_ICON = '<svg class="form-submit-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('.form-submit');
   const feedback = form.querySelector('.contact-form-feedback');
-  const originalLabel = btn.textContent;
+  const originalLabel = btn.innerHTML;
   const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
 
   if (feedback) {
@@ -90,6 +92,7 @@ async function handleSubmit(e) {
 
   btn.disabled = true;
   btn.textContent = 'Sending…';
+  btn.classList.remove('is-success');
 
   try {
     const response = await fetch(form.action, {
@@ -120,8 +123,8 @@ async function handleSubmit(e) {
     const data = await response.json().catch(() => ({}));
     const successMessage = data.message || "Message sent! We'll be in touch shortly.";
 
-    btn.textContent = '✅ Message Sent!';
-    btn.style.background = '#22c55e';
+    btn.innerHTML = CONTACT_SUCCESS_ICON + '<span>Message Sent!</span>';
+    btn.classList.add('is-success');
     form.reset();
 
     if (feedback) {
@@ -131,12 +134,13 @@ async function handleSubmit(e) {
     }
 
     setTimeout(() => {
-      btn.textContent = originalLabel;
-      btn.style.background = '';
+      btn.innerHTML = originalLabel;
+      btn.classList.remove('is-success');
       btn.disabled = false;
     }, 5000);
   } catch (err) {
-    btn.textContent = originalLabel;
+    btn.innerHTML = originalLabel;
+    btn.classList.remove('is-success');
     btn.disabled = false;
 
     if (feedback) {
@@ -239,6 +243,23 @@ function shakeModal() {
   m.style.animation = 'shake 0.4s ease';
   setTimeout(() => m.style.animation = '', 400);
 }
+
+/* AI Adoption — animate ascending arrow line on scroll */
+(function() {
+  const grid = document.querySelector('.ai-steps-grid');
+  if (!grid) return;
+
+  const aiLineObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        grid.classList.add('in-view');
+        aiLineObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  aiLineObserver.observe(grid);
+})();
 
 /* ═══════════════════════════════════════════════
    GALLERY MOSAIC — Scroll-triggered reveal

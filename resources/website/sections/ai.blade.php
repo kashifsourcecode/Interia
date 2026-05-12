@@ -10,6 +10,16 @@
 
   @if ($aiAdoptionSection->steps->isNotEmpty())
   <div class="ai-steps-grid">
+    <svg class="ai-steps-line" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <marker id="aiArrowHead" markerWidth="16" markerHeight="16" refX="0" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+          <path d="M0,0 L16,8 L0,16 Z" class="ai-steps-line-arrow" />
+        </marker>
+      </defs>
+      <polyline class="ai-steps-line-stroke"
+        points="8,335 1145,-28 1175,-45"
+        marker-end="url(#aiArrowHead)" />
+    </svg>
     @foreach ($aiAdoptionSection->steps as $step)
       @php($delaySuffix = $loop->index > 0 ? ' reveal-delay-'.min($loop->index, 4) : '')
       <div class="ai-step {{ $step->layoutCssClass() }} reveal{{ $delaySuffix }}">

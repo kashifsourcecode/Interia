@@ -26,10 +26,11 @@ class AiAdoptionSectionForm
                     ->helperText('Small label above the main title (e.g. “AI Adoption”).'),
                 TextInput::make('title')
                     ->required()
-                    ->maxLength(512),
+                    ->maxLength(512)
+                    ->helperText('Headline above the staircase of five process cards.'),
                 Textarea::make('subtitle')
                     ->columnSpanFull()
-                    ->helperText('Supporting paragraph under the title.'),
+                    ->helperText('Supporting paragraph under the title. After saving, manage the five staircase cards (Detect → Optimize) in the "Process steps" tab.'),
                 TextInput::make('framework_heading')
                     ->required()
                     ->maxLength(255)

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="csrf-token" content="2vaEbDA8GgF5HbOZAWxfcaS6x08nsy66yVH0v8Yq" />
+<meta name="csrf-token" content="CFfpTpN46KZA6fQRSWapqagsxs1Sj64ofP5GIXgX" />
 <title>Interia Technologies — Managed IT for Las Vegas Businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link
@@ -1474,58 +1474,94 @@
         }
 
         .ai-steps-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
             max-width: 1240px;
-            margin: 0 auto 4rem;
-            align-items: flex-start;
+            margin: 0 auto 5rem;
+            padding: 3.5rem 0.75rem 1.5rem;
+            align-items: end;
+        }
+
+        /* Ascending arrow line on top of the cards */
+        .ai-steps-line {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            overflow: visible;
+        }
+
+        .ai-steps-line-stroke {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vector-effect: non-scaling-stroke;
+            filter: drop-shadow(0 6px 14px rgba(2, 87, 185, 0.32));
+            opacity: 0;
+            stroke-dasharray: 1300;
+            stroke-dashoffset: 1300;
+            transition: opacity 0.5s ease, stroke-dashoffset 1.6s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .ai-steps-grid.in-view .ai-steps-line-stroke {
+            opacity: 1;
+            stroke-dashoffset: 0;
+        }
+
+        .ai-steps-line-arrow {
+            fill: var(--accent);
         }
 
         .ai-step {
-            background: var(--accent-soft);
+            position: relative;
+            z-index: 1;
+            background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
+            border-radius: 12px;
+            padding: 1.1rem 1.1rem 1.2rem;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            flex: 0 0 auto;
-            align-self: flex-start;
+            gap: 0.55rem;
             box-sizing: border-box;
+            box-shadow: 0 8px 24px rgba(2, 11, 20, 0.18);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.4s ease;
         }
 
-        /* Per-card exact dimensions (design spec) */
+        [data-theme="light"] .ai-step {
+            background: #FFFFFF;
+            box-shadow: 0 10px 30px rgba(2, 87, 185, 0.10), 0 2px 6px rgba(2, 11, 20, 0.05);
+        }
+
+        /* Staircase positioning — each card sits progressively higher */
         .ai-step--detect {
-            width: 179px;
-            min-height: 203.5px;
+            margin-bottom: 0;
         }
 
         .ai-step--analyze {
-            width: 283px;
-            min-height: 223px;
+            margin-bottom: 80px;
         }
 
         .ai-step--automate {
-            width: 283px;
-            min-height: 159px;
+            margin-bottom: 160px;
         }
 
         .ai-step--secure {
-            width: 231px;
-            min-height: 177px;
+            margin-bottom: 240px;
         }
 
         .ai-step--optimize {
-            width: 206px;
-            min-height: 222.75px;
+            margin-bottom: 320px;
         }
 
         .ai-step:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(2, 87, 185, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 34px rgba(2, 87, 185, 0.18);
             border-color: var(--border-strong);
         }
 
@@ -1539,16 +1575,19 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 26px;
-            height: 26px;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-strong);
             color: var(--accent);
             flex-shrink: 0;
         }
 
         .ai-step-icon svg,
         .ai-step-icon img {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             display: block;
         }
 
@@ -1564,15 +1603,16 @@
         .ai-step-title {
             font-family: 'DM Sans', sans-serif;
             font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: 0;
-            text-transform: uppercase;
+            font-size: 1.35rem;
+            letter-spacing: -0.01em;
+            text-transform: none;
             color: var(--text);
-            line-height: 1.2;
+            line-height: 1.15;
             position: relative;
             display: inline-block;
             overflow: hidden;
             vertical-align: top;
+            margin-top: 0.15rem;
         }
 
         .ai-step-title::before {
@@ -1600,13 +1640,13 @@
         }
 
         .ai-step-desc {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
-            line-height: 1.55;
+            line-height: 1.5;
         }
 
         .ai-step-stat {
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
             display: flex;
             align-items: baseline;
             gap: 0.35rem;
@@ -1615,13 +1655,13 @@
 
         .ai-step-stat strong {
             font-family: 'DM Sans', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.01em;
         }
 
         .ai-step-stat span {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             font-weight: 500;
         }
@@ -2633,6 +2673,32 @@
             border: 1px solid var(--border-strong);
         }
 
+        .form-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background-color 220ms ease, color 220ms ease, transform 120ms ease;
+        }
+
+        .form-submit.is-success {
+            background: #16a34a;
+            color: #fff;
+        }
+
+        .form-submit-icon {
+            display: inline-block;
+            flex-shrink: 0;
+            stroke: currentColor;
+            animation: form-submit-pop 360ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        @keyframes form-submit-pop {
+            0% { transform: scale(0.4); opacity: 0; }
+            60% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -2845,6 +2911,14 @@
 
             .ai-steps-grid {
                 max-width: 760px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+                padding-top: 0;
+                align-items: stretch;
+            }
+
+            .ai-steps-line {
+                display: none;
             }
 
             .ai-step,
@@ -2853,10 +2927,10 @@
             .ai-step--automate,
             .ai-step--secure,
             .ai-step--optimize {
-                flex: 1 1 220px;
+                margin-bottom: 0;
                 width: auto;
                 min-height: 0;
-                max-width: 280px;
+                max-width: none;
             }
 
             .ai-framework {
@@ -2914,7 +2988,9 @@
 
             .ai-steps-grid {
                 max-width: 540px;
-                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding-top: 0;
             }
 
             .ai-step,
@@ -2923,10 +2999,10 @@
             .ai-step--automate,
             .ai-step--secure,
             .ai-step--optimize {
-                flex: 1 1 200px;
+                margin-bottom: 0;
                 width: auto;
                 min-height: 0;
-                max-width: 260px;
+                max-width: none;
             }
 
             .ai-framework {
@@ -3013,6 +3089,7 @@
         @media (max-width: 540px) {
             .ai-steps-grid {
                 max-width: 380px;
+                grid-template-columns: 1fr;
             }
 
             .ai-step,
@@ -3021,7 +3098,7 @@
             .ai-step--automate,
             .ai-step--secure,
             .ai-step--optimize {
-                flex: 1 1 100%;
+                margin-bottom: 0;
                 width: 100%;
                 min-height: 0;
                 max-width: 100%;
@@ -3169,7 +3246,7 @@
 <!-- NAV — Added "Home" link -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo" aria-label="Interia Technologies home">
-    <img src="https://interia-41v9.vercel.app/images/interia-logo.png" alt="Interia Technologies" />
+    <img src="http://interia.test/images/interia-logo.png" alt="Interia Technologies" />
   </a>
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
@@ -3202,7 +3279,7 @@
 <section id="hero">
   <div class="hero-video" aria-hidden="true">
     <video autoplay muted loop playsinline preload="metadata">
-      <source src="https://interia-41v9.vercel.app/videos/it-video.mp4" type="video/mp4" />
+      <source src="http://interia.test/videos/it-video.mp4" type="video/mp4" />
     </video>
   </div>
   <div class="hero-grid"></div>
@@ -3281,11 +3358,11 @@
 
     <div class="hero-ctas">
       <a href="#contact" class="btn-primary">
-        <img class="btn-icon" src="https://interia-41v9.vercel.app/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
+        <img class="btn-icon" src="http://interia.test/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
         Free IT Assessment
       </a>
       <a href="#offers" class="btn-secondary">
-        <img class="btn-icon" src="https://interia-41v9.vercel.app/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
+        <img class="btn-icon" src="http://interia.test/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
         Free AI Workshops →
       </a>
     </div>
@@ -3321,7 +3398,7 @@ for Small Business</h2>
     <div class="services-strip-track">
                         <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
+              src="http://interia.test/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
               alt="IT technician at server rack"
               loading="lazy"
             />
@@ -3329,7 +3406,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
+              src="http://interia.test/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
               alt="IT team meeting"
               loading="lazy"
             />
@@ -3337,7 +3414,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/ON-call%20support.png"
+              src="http://interia.test/service-carousel/ON-call%20support.png"
               alt="IT support specialist"
               loading="lazy"
             />
@@ -3345,7 +3422,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/Network%20setup.png"
+              src="http://interia.test/service-carousel/Network%20setup.png"
               alt="Network infrastructure"
               loading="lazy"
             />
@@ -3353,7 +3430,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/security%20operations.png"
+              src="http://interia.test/service-carousel/security%20operations.png"
               alt="Cybersecurity monitoring"
               loading="lazy"
             />
@@ -3361,7 +3438,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/IT%20Consultation.png"
+              src="http://interia.test/service-carousel/IT%20Consultation.png"
               alt="Business IT consultation"
               loading="lazy"
             />
@@ -3369,7 +3446,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/cloud%20migration.png"
+              src="http://interia.test/service-carousel/cloud%20migration.png"
               alt="Cloud computing setup"
               loading="lazy"
             />
@@ -3377,7 +3454,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/Data%20center.png"
+              src="http://interia.test/service-carousel/Data%20center.png"
               alt="Data center management"
               loading="lazy"
             />
@@ -3385,7 +3462,7 @@ for Small Business</h2>
           </div>
                                 <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
+              src="http://interia.test/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
               alt="IT technician at server rack"
               loading="lazy"
             />
@@ -3393,7 +3470,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
+              src="http://interia.test/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
               alt="IT team meeting"
               loading="lazy"
             />
@@ -3401,7 +3478,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/ON-call%20support.png"
+              src="http://interia.test/service-carousel/ON-call%20support.png"
               alt="IT support specialist"
               loading="lazy"
             />
@@ -3409,7 +3486,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/Network%20setup.png"
+              src="http://interia.test/service-carousel/Network%20setup.png"
               alt="Network infrastructure"
               loading="lazy"
             />
@@ -3417,7 +3494,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/security%20operations.png"
+              src="http://interia.test/service-carousel/security%20operations.png"
               alt="Cybersecurity monitoring"
               loading="lazy"
             />
@@ -3425,7 +3502,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/IT%20Consultation.png"
+              src="http://interia.test/service-carousel/IT%20Consultation.png"
               alt="Business IT consultation"
               loading="lazy"
             />
@@ -3433,7 +3510,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/cloud%20migration.png"
+              src="http://interia.test/service-carousel/cloud%20migration.png"
               alt="Cloud computing setup"
               loading="lazy"
             />
@@ -3441,7 +3518,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="https://interia-41v9.vercel.app/service-carousel/Data%20center.png"
+              src="http://interia.test/service-carousel/Data%20center.png"
               alt="Data center management"
               loading="lazy"
             />
@@ -3453,7 +3530,7 @@ for Small Business</h2>
     <div class="services-grid">
                 <div class="service-card reveal">
                   <div class="service-icon">
-            <img src="https://interia-41v9.vercel.app/images/icon-laptop.svg" alt="" aria-hidden="true" />
+            <img src="http://interia.test/images/icon-laptop.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Managed IT Services</h3>
         <p>Proactive monitoring, support, and maintenance to keep your systems running smoothly — 24/7, without the headaches.</p>
@@ -3461,7 +3538,7 @@ for Small Business</h2>
       </div>
                 <div class="service-card reveal reveal-delay-1">
                   <div class="service-icon">
-            <img src="https://interia-41v9.vercel.app/images/icon-cloud.svg" alt="" aria-hidden="true" />
+            <img src="http://interia.test/images/icon-cloud.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Cloud &amp; Server Management</h3>
         <p>We manage your cloud environments, servers, and infrastructure so you can focus on running your business, not your tech stack.</p>
@@ -3469,7 +3546,7 @@ for Small Business</h2>
       </div>
                 <div class="service-card reveal reveal-delay-2">
                   <div class="service-icon">
-            <img src="https://interia-41v9.vercel.app/images/icon-security.svg" alt="" aria-hidden="true" />
+            <img src="http://interia.test/images/icon-security.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Cybersecurity</h3>
         <p>Advanced protection against modern threats, using enterprise-grade tools and practices typically reserved for large corporations.</p>
@@ -3477,7 +3554,7 @@ for Small Business</h2>
       </div>
                 <div class="service-card reveal reveal-delay-3">
                   <div class="service-icon">
-            <img src="https://interia-41v9.vercel.app/images/icon-handshake.svg" alt="" aria-hidden="true" />
+            <img src="http://interia.test/images/icon-handshake.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Onsite + Remote Support</h3>
         <p>Unlike others, we include onsite support at no additional cost. Real hands-on help, right when and where you need it.</p>
@@ -3493,10 +3570,20 @@ for Small Business</h2>
       </div>
 
     <div class="ai-steps-grid">
+    <svg class="ai-steps-line" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <marker id="aiArrowHead" markerWidth="16" markerHeight="16" refX="0" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+          <path d="M0,0 L16,8 L0,16 Z" class="ai-steps-line-arrow" />
+        </marker>
+      </defs>
+      <polyline class="ai-steps-line-stroke"
+        points="8,335 1145,-28 1175,-45"
+        marker-end="url(#aiArrowHead)" />
+    </svg>
                 <div class="ai-step ai-step--detect reveal">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/detect.svg" alt="" />
+              <img src="http://interia.test/ai-adoption-icons/detect.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 01</span>
         </div>
@@ -3506,7 +3593,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--analyze reveal reveal-delay-1">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/analyze.svg" alt="" />
+              <img src="http://interia.test/ai-adoption-icons/analyze.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 02</span>
         </div>
@@ -3516,7 +3603,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--automate reveal reveal-delay-2">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/automate.svg" alt="" />
+              <img src="http://interia.test/ai-adoption-icons/automate.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 03</span>
         </div>
@@ -3526,7 +3613,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--secure reveal reveal-delay-3">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/secure.svg" alt="" />
+              <img src="http://interia.test/ai-adoption-icons/secure.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 04</span>
         </div>
@@ -3536,7 +3623,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--optimize reveal reveal-delay-4">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/optimize.svg" alt="" />
+              <img src="http://interia.test/ai-adoption-icons/optimize.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 05</span>
         </div>
@@ -3552,7 +3639,7 @@ for Small Business</h2>
     <div class="ai-framework">
           <div class="ai-dashboard reveal">
         <img class="ai-dashboard-img"
-             src="https://interia-41v9.vercel.app/images/ai-system-dashboard.png"
+             src="http://interia.test/images/ai-system-dashboard.png"
              alt="AI system dashboard with charts, graphs, and analytics visualizations"
              loading="lazy" />
       </div>
@@ -3580,7 +3667,7 @@ Both Worlds</h2>
               <ul class="why-list">
                                   <li class="why-item reveal">
                               <div class="wi-icon">
-                  <img src="https://interia-41v9.vercel.app/images/icon-prize.svg" alt="" aria-hidden="true" />
+                  <img src="http://interia.test/images/icon-prize.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>Enterprise-Level Expertise</h4>
@@ -3589,7 +3676,7 @@ Both Worlds</h2>
             </li>
                                   <li class="why-item reveal reveal-delay-1">
                               <div class="wi-icon">
-                  <img src="https://interia-41v9.vercel.app/images/icon-location.svg" alt="" aria-hidden="true" />
+                  <img src="http://interia.test/images/icon-location.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>Local Las Vegas Presence</h4>
@@ -3598,7 +3685,7 @@ Both Worlds</h2>
             </li>
                                   <li class="why-item reveal reveal-delay-2">
                               <div class="wi-icon">
-                  <img src="https://interia-41v9.vercel.app/images/icon-fees.svg" alt="" aria-hidden="true" />
+                  <img src="http://interia.test/images/icon-fees.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>No Hidden Fees</h4>
@@ -3607,7 +3694,7 @@ Both Worlds</h2>
             </li>
                                   <li class="why-item reveal reveal-delay-3">
                               <div class="wi-icon">
-                  <img src="https://interia-41v9.vercel.app/images/icon-power.svg" alt="" aria-hidden="true" />
+                  <img src="http://interia.test/images/icon-power.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>Built for Tech-Reliant Businesses</h4>
@@ -3619,7 +3706,7 @@ Both Worlds</h2>
 
           <div class="why-visual reveal">
         <div class="city-card">
-          <img src="https://interia-41v9.vercel.app/images/best-of-both-worlds.png"
+          <img src="http://interia.test/images/best-of-both-worlds.png"
                alt="Las Vegas skyline with technology icons"
                loading="lazy" />
         </div>
@@ -3630,46 +3717,46 @@ Both Worlds</h2>
         <div class="gallery-mosaic-wrap reveal" id="mosaicWrap">
             <div class="gallery-mosaic mosaic-hidden" id="galleryMosaic">
                                     <div class="mosaic-card shape-left-top">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/L.column%2001%20%28a%29.png" alt="Quiet office workspace" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/L.column%2001%20%28a%29.png" alt="Quiet office workspace" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-left-bottom">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/L.column%2001%20%28b%29.png" alt="Team presentation room" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/L.column%2001%20%28b%29.png" alt="Team presentation room" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-team">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/L.column%2002%20%28a%29.png" alt="People collaborating in a meeting" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/L.column%2002%20%28a%29.png" alt="People collaborating in a meeting" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-desk">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/L.column%2002%20%28b%29.png" alt="Shared work desk with laptops" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/L.column%2002%20%28b%29.png" alt="Shared work desk with laptops" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-office">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/L.column%2002%20%28c%29.png" alt="Modern office interior" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/L.column%2002%20%28c%29.png" alt="Modern office interior" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-coffee">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/Center%20images01.png" alt="Coffee and notebook on desk" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/Center%20images01.png" alt="Coffee and notebook on desk" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-window">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/Center%20images02.png" alt="Laptop beside a bright window" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/Center%20images02.png" alt="Laptop beside a bright window" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-people">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/Center%20images03.png" alt="Coworkers discussing a project" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/Center%20images03.png" alt="Coworkers discussing a project" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-meeting">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/Center%20images04.png" alt="Business meeting at office table" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/Center%20images04.png" alt="Business meeting at office table" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-notes">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/R.%20coloumn%2002%20%28a%29.png" alt="Hand writing notes" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/R.%20coloumn%2002%20%28a%29.png" alt="Hand writing notes" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-books">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/R.%20coloumn%2002%20%28b%29.png" alt="Business books stacked on a table" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/R.%20coloumn%2002%20%28b%29.png" alt="Business books stacked on a table" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-laptop">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/R.%20coloumn%2002%20%28c%29.png" alt="Minimal laptop workspace" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/R.%20coloumn%2002%20%28c%29.png" alt="Minimal laptop workspace" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-student">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/R.%20column%2001%20%28a%29.png" alt="Person working with laptop" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/R.%20column%2001%20%28a%29.png" alt="Person working with laptop" loading="lazy" />
                     </div>
                                     <div class="mosaic-card shape-culture">
-                        <img src="https://interia-41v9.vercel.app/gallery-mosaic/R.%20column%2001%20%28b%29.png" alt="Two teammates in conversation" loading="lazy" />
+                        <img src="http://interia.test/gallery-mosaic/R.%20column%2001%20%28b%29.png" alt="Two teammates in conversation" loading="lazy" />
                     </div>
                 
                                     <div class="gallery-bg-text" aria-hidden="true">
@@ -3688,7 +3775,7 @@ See the Value.</h2>
       <div class="offers-grid">
                       <div class="offer-card gold reveal">
                       <div class="offer-icon">
-              <img src="https://interia-41v9.vercel.app/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
+              <img src="http://interia.test/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
             </div>
                     <div class="offer-tag gold-tag">Complimentary</div>
           <h3>Free IT Assessment</h3>
@@ -3697,7 +3784,7 @@ See the Value.</h2>
         </div>
                       <div class="offer-card blue reveal reveal-delay-1">
                       <div class="offer-icon">
-              <img src="https://interia-41v9.vercel.app/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
+              <img src="http://interia.test/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
             </div>
                     <div class="offer-tag blue-tag">Workshop</div>
           <h3>Free AI Workshops</h3>
@@ -3796,7 +3883,7 @@ See the Value.</h2>
                             <div class="addon-card reveal">
             <div class="addon-head">
                               <span class="addon-icon" aria-hidden="true">
-                  <img src="https://interia-41v9.vercel.app/pricing-addon-icons/Server%20Pricing.svg" alt="" />
+                  <img src="http://interia.test/pricing-addon-icons/Server%20Pricing.svg" alt="" />
                 </span>
                             <h3 class="addon-title">Server Pricing</h3>
             </div>
@@ -3817,7 +3904,7 @@ See the Value.</h2>
                             <div class="addon-card reveal reveal-delay-1">
             <div class="addon-head">
                               <span class="addon-icon" aria-hidden="true">
-                  <img src="https://interia-41v9.vercel.app/pricing-addon-icons/Cloud%20Pricing.svg" alt="" />
+                  <img src="http://interia.test/pricing-addon-icons/Cloud%20Pricing.svg" alt="" />
                 </span>
                             <h3 class="addon-title">Cloud Pricing</h3>
             </div>
@@ -3838,7 +3925,7 @@ See the Value.</h2>
                             <div class="addon-card reveal reveal-delay-2">
             <div class="addon-head">
                               <span class="addon-icon" aria-hidden="true">
-                  <img src="https://interia-41v9.vercel.app/pricing-addon-icons/Site.svg" alt="" />
+                  <img src="http://interia.test/pricing-addon-icons/Site.svg" alt="" />
                 </span>
                             <h3 class="addon-title">Network/Site</h3>
             </div>
@@ -3858,7 +3945,7 @@ See the Value.</h2>
     <section id="about">
     <div class="about-layout">
           <div class="about-visual reveal">
-        <img src="https://interia-41v9.vercel.app/images/about-interia.png" alt="Connected city skyline representing Interia Technologies" loading="lazy" />
+        <img src="http://interia.test/images/about-interia.png" alt="Connected city skyline representing Interia Technologies" loading="lazy" />
       </div>
     
     <div>
@@ -3881,7 +3968,7 @@ Interia Technologies</h2>
 
       <div class="team-note reveal">
         <strong>
-                      <img src="https://interia-41v9.vercel.app/images/icon-place.svg" alt="" aria-hidden="true" />
+                      <img src="http://interia.test/images/icon-place.svg" alt="" aria-hidden="true" />
                     Born and based in Las Vegas, NV.
         </strong>
                    Our team lives here, works here, and is invested in the success of this community. When you partner with Interia, you&#039;re not calling a remote help desk — you&#039;re calling your neighbors.
@@ -3899,7 +3986,7 @@ About Your IT</h2>
                     <div class="contact-info">
                                                         <div class="contact-block reveal">
                         <div class="cb-icon">
-                                                            <img src="https://interia-41v9.vercel.app/images/icon-location.svg" alt="" aria-hidden="true" />
+                                                            <img src="http://interia.test/images/icon-location.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Location</h5>
@@ -3908,7 +3995,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-1">
                         <div class="cb-icon">
-                                                            <img src="https://interia-41v9.vercel.app/images/icon-phone.svg" alt="" aria-hidden="true" />
+                                                            <img src="http://interia.test/images/icon-phone.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Phone</h5>
@@ -3917,7 +4004,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-2">
                         <div class="cb-icon">
-                                                            <img src="https://interia-41v9.vercel.app/images/icon-email.svg" alt="" aria-hidden="true" />
+                                                            <img src="http://interia.test/images/icon-email.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Email</h5>
@@ -3926,7 +4013,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-3">
                         <div class="cb-icon">
-                                                            <img src="https://interia-41v9.vercel.app/images/icon-time.svg" alt="" aria-hidden="true" />
+                                                            <img src="http://interia.test/images/icon-time.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Response Time</h5>
@@ -3935,7 +4022,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-4">
                         <div class="cb-icon">
-                                                            <img src="https://interia-41v9.vercel.app/images/icon-handshake.svg" alt="" aria-hidden="true" />
+                                                            <img src="http://interia.test/images/icon-handshake.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Onsite Support</h5>
@@ -3944,8 +4031,8 @@ About Your IT</h2>
                     </div>
                             </div>
         
-        <form class="contact-form reveal" method="POST" action="https://interia-41v9.vercel.app/contact" onsubmit="handleSubmit(event)" novalidate>
-            <input type="hidden" name="_token" value="2vaEbDA8GgF5HbOZAWxfcaS6x08nsy66yVH0v8Yq" autocomplete="off">            <div class="contact-form-feedback" role="status" aria-live="polite" hidden></div>
+        <form class="contact-form reveal" method="POST" action="http://interia.test/contact" onsubmit="handleSubmit(event)" novalidate>
+            <input type="hidden" name="_token" value="CFfpTpN46KZA6fQRSWapqagsxs1Sj64ofP5GIXgX" autocomplete="off">            <div class="contact-form-feedback" role="status" aria-live="polite" hidden></div>
             <div class="form-row">
                 <div class="form-group">
                     <label>First Name</label>
@@ -3999,7 +4086,7 @@ About Your IT</h2>
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="https://interia-41v9.vercel.app/images/interia-logo.png" alt="Interia Technologies" />
+    <img src="http://interia.test/images/interia-logo.png" alt="Interia Technologies" />
   </div>
   <p>© 2026 Interia Technologies. Las Vegas, NV. All rights reserved.</p>
   <div class="footer-links">
@@ -4087,12 +4174,14 @@ const counterObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.stats-band').forEach(el => counterObserver.observe(el));
 
 /* Contact form submit */
+const CONTACT_SUCCESS_ICON = '<svg class="form-submit-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('.form-submit');
   const feedback = form.querySelector('.contact-form-feedback');
-  const originalLabel = btn.textContent;
+  const originalLabel = btn.innerHTML;
   const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
 
   if (feedback) {
@@ -4103,6 +4192,7 @@ async function handleSubmit(e) {
 
   btn.disabled = true;
   btn.textContent = 'Sending…';
+  btn.classList.remove('is-success');
 
   try {
     const response = await fetch(form.action, {
@@ -4133,8 +4223,8 @@ async function handleSubmit(e) {
     const data = await response.json().catch(() => ({}));
     const successMessage = data.message || "Message sent! We'll be in touch shortly.";
 
-    btn.textContent = '✅ Message Sent!';
-    btn.style.background = '#22c55e';
+    btn.innerHTML = CONTACT_SUCCESS_ICON + '<span>Message Sent!</span>';
+    btn.classList.add('is-success');
     form.reset();
 
     if (feedback) {
@@ -4144,12 +4234,13 @@ async function handleSubmit(e) {
     }
 
     setTimeout(() => {
-      btn.textContent = originalLabel;
-      btn.style.background = '';
+      btn.innerHTML = originalLabel;
+      btn.classList.remove('is-success');
       btn.disabled = false;
     }, 5000);
   } catch (err) {
-    btn.textContent = originalLabel;
+    btn.innerHTML = originalLabel;
+    btn.classList.remove('is-success');
     btn.disabled = false;
 
     if (feedback) {
@@ -4252,6 +4343,23 @@ function shakeModal() {
   m.style.animation = 'shake 0.4s ease';
   setTimeout(() => m.style.animation = '', 400);
 }
+
+/* AI Adoption — animate ascending arrow line on scroll */
+(function() {
+  const grid = document.querySelector('.ai-steps-grid');
+  if (!grid) return;
+
+  const aiLineObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        grid.classList.add('in-view');
+        aiLineObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  aiLineObserver.observe(grid);
+})();
 
 /* ═══════════════════════════════════════════════
    GALLERY MOSAIC — Scroll-triggered reveal

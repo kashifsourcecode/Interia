@@ -45,7 +45,7 @@ class ContactSubmissionResource extends Resource
     {
         return 'warning';
     }
-
+    
     public static function infolist(Schema $schema): Schema
     {
         return ContactSubmissionInfolist::configure($schema);
