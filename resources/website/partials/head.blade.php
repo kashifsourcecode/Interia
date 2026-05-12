@@ -2090,7 +2090,7 @@
             animation: mosaicReveal 0.6s ease forwards;
         }
 
-        /* FREE OFFERS */
+        /* FREE ASSESSMENTS */
         #offers {
             background: var(--bg);
             transition: background 0.4s;

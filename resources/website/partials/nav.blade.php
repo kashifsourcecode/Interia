@@ -8,7 +8,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#offers">Free Offers</a></li>
+    <li><a href="#assessments">Free Assessments</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>

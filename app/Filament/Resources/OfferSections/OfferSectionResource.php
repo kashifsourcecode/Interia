@@ -24,7 +24,7 @@ class OfferSectionResource extends Resource
 
     protected static string|UnitEnum|null $navigationGroup = 'Website';
 
-    protected static ?string $navigationLabel = 'Free Offers';
+    protected static ?string $navigationLabel = 'Free Assessments';
 
     protected static ?int $navigationSort = 14;
 

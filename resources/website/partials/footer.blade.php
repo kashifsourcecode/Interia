@@ -12,6 +12,6 @@
     <a href="#gallery">Gallery</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <a href="#offers">Free Offers</a>
+    <a href="#assessments">Free Assessments</a>
   </div>
 </footer>

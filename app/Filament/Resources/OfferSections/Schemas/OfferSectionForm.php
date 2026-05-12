@@ -18,7 +18,7 @@ class OfferSectionForm
                     ->unique(ignoreRecord: true)
                     ->alphaDash()
                     ->maxLength(191)
-                    ->helperText('Use "home" for the homepage free offers block.'),
+                    ->helperText('Use "home" for the homepage free assessments block.'),
                 TextInput::make('label')
                     ->required()
                     ->maxLength(255)
