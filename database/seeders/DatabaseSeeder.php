@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GallerySectionSeeder::class);
         $this->call(AiAdoptionSectionSeeder::class);
         $this->call(WhySectionSeeder::class);
+        $this->call(IndustrySectionSeeder::class);
         $this->call(OfferSectionSeeder::class);
         $this->call(PricingSectionSeeder::class);
         $this->call(AboutSectionSeeder::class);

@@ -6,6 +6,7 @@ use App\Models\AboutSection;
 use App\Models\AiAdoptionSection;
 use App\Models\ContactSection;
 use App\Models\GallerySection;
+use App\Models\IndustrySection;
 use App\Models\OfferSection;
 use App\Models\PricingSection;
 use App\Models\ServiceSection;
@@ -34,6 +35,41 @@ class AppServiceProvider extends ServiceProvider
         View::addNamespace('website', resource_path('website'));
 
         RateLimiter::for('contact', fn (Request $request): Limit => Limit::perMinute(5)->by($request->ip()));
+
+        RateLimiter::for('enterprise-quote', fn (Request $request): Limit => Limit::perMinute(3)->by($request->ip()));
+
+        View::composer('website::layouts.app', function ($view): void {
+            $view->with('homeSectionNav', [
+                'services' => ServiceSection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->exists(),
+                'industries' => IndustrySection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->exists(),
+                'why' => WhySection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->exists(),
+                'gallery' => GallerySection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->exists(),
+                'offers' => OfferSection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->exists(),
+                'about' => AboutSection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->exists(),
+                'contact' => ContactSection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->exists(),
+            ]);
+        });
 
         View::composer('website::sections.services', function ($view): void {
             $view->with(
@@ -107,6 +143,17 @@ class AppServiceProvider extends ServiceProvider
                 AboutSection::query()
                     ->where('slug', 'home')
                     ->where('is_active', true)
+                    ->first(),
+            );
+        });
+
+        View::composer('website::sections.industries', function ($view): void {
+            $view->with(
+                'industrySection',
+                IndustrySection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->with('cards')
                     ->first(),
             );
         });

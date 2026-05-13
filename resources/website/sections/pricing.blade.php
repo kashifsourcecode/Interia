@@ -35,7 +35,7 @@
               @endforeach
             </ul>
 
-            <a href="{{ $plan->cta_url ?: '#contact' }}" class="pricing-cta {{ $plan->ctaClass() }}">{{ $plan->cta_label }}</a>
+            <a href="{{ $plan->cta_url ?: route('website.section.contact') }}" class="pricing-cta {{ $plan->ctaClass() }}">{{ $plan->cta_label }}</a>
           </div>
         </div>
       @endforeach

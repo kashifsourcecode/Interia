@@ -3,12 +3,43 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="csrf-token" content="CFfpTpN46KZA6fQRSWapqagsxs1Sj64ofP5GIXgX" />
+<meta name="csrf-token" content="DFcbuajQlcGYdbPFWZz35VgA6ODLBU6WdAlATUR2" />
 <title>Interia Technologies — Managed IT for Las Vegas Businesses</title>
+<link rel="icon" type="image/png" href="https://interia-41v9.vercel.app/images/interia-logo.png" sizes="any" />
+<link rel="apple-touch-icon" href="https://interia-41v9.vercel.app/images/interia-logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@@300;400;500;600;700;800&family=DM+Mono:wght@@400;500&display=swap"
-    rel="stylesheet" />
+    rel="preload"
+    href="https://interia-41v9.vercel.app/fonts/bebas-neue/bebas-neue-latin-400-normal.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+/>
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@@300;400;500;600;700;800&family=DM+Mono:wght@@400;500&display=swap"
+    rel="stylesheet"
+/>
+<style>
+    @font-face {
+        font-family: 'Bebas Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://interia-41v9.vercel.app/fonts/bebas-neue/bebas-neue-latin-400-normal.woff2") format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+            U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+        font-family: 'Bebas Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://interia-41v9.vercel.app/fonts/bebas-neue/bebas-neue-latin-ext-400-normal.woff2") format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+            U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+</style>
 
 
     <style>
@@ -469,6 +500,8 @@
             margin-bottom: 0.3rem;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.8rem;
+            font-weight: 400;
+            font-synthesis: none;
             letter-spacing: 0.06em;
             color: var(--text);
         }
@@ -982,7 +1015,7 @@
             font-family: 'DM Sans', sans-serif;
             font-size: clamp(2.6rem, 5.5vw, 4.2rem);
             line-height: 1.12;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: -0.02em;
             color: var(--text);
             margin-bottom: 0.5rem;
@@ -1176,9 +1209,11 @@
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.3rem, 4.5vw, 3.9rem);
+            font-weight: 400;
+            font-synthesis: none;
             line-height: 1;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.045em;
             margin-bottom: 1.2rem;
             color: var(--text);
         }
@@ -1238,6 +1273,8 @@
         .stat-number {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 3.5rem;
+            font-weight: 400;
+            font-synthesis: none;
             line-height: 1;
             color: var(--accent);
             letter-spacing: 0.02em;
@@ -1409,7 +1446,7 @@
 
         .service-card h3 {
             font-size: 1.15rem;
-            font-weight: 600;
+            font-weight: 500;
             margin-bottom: 0.7rem;
             color: var(--text);
         }
@@ -1602,7 +1639,7 @@
 
         .ai-step-title {
             font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1.35rem;
             letter-spacing: -0.01em;
             text-transform: none;
@@ -1656,7 +1693,7 @@
         .ai-step-stat strong {
             font-family: 'DM Sans', sans-serif;
             font-size: 1.25rem;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: -0.01em;
         }
 
@@ -1699,7 +1736,7 @@
 
         .ai-framework-content .section-label {
             font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1.25rem;
             letter-spacing: 0;
             line-height: 1.2;
@@ -1838,7 +1875,7 @@
 
         .why-item h4 {
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 500;
             margin-bottom: 0.2rem;
             color: var(--text);
         }
@@ -1849,8 +1886,8 @@
         }
 
         /* ═══════════════════════════════════════════════
-               GALLERY — PEOPLE COLLAGE
-               ═══════════════════════════════════════════════ */
+                   GALLERY — PEOPLE COLLAGE
+                   ═══════════════════════════════════════════════ */
         #gallery {
             background: var(--bg);
             overflow: hidden;
@@ -1890,7 +1927,7 @@
             z-index: 3;
             width: min(680px, 70vw);
             font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-style: normal;
             color: var(--accent);
             opacity: 1;
@@ -1915,12 +1952,12 @@
         }
 
         .gallery-bg-text span:first-child {
-            font-weight: 700;
+            font-weight: 600;
             color: var(--accent);
         }
 
         .gallery-bg-text span:last-child {
-            font-weight: 600;
+            font-weight: 500;
             color: var(--text-muted);
         }
 
@@ -2093,6 +2130,194 @@
             animation: mosaicReveal 0.6s ease forwards;
         }
 
+        /* INDUSTRIES — same page shell as other sections; cards use brand gradient */
+        #industries {
+            --industry-card-title: #0a1628;
+            --industry-card-text: #3d4f63;
+            --industry-card-surface: linear-gradient(
+                149.84deg,
+                rgba(138, 56, 245, 0.06) 6.33%,
+                rgba(2, 87, 185, 0.2) 65.16%
+            );
+            background: var(--bg);
+            transition: background 0.4s ease;
+        }
+
+        [data-theme="dark"] #industries {
+            --industry-card-title: #e8eef8;
+            --industry-card-text: #9eb0c8;
+            background: var(--bg);
+        }
+
+        #industries .section-desc {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .industries-top {
+            text-align: left;
+            max-width: 640px;
+            margin: 0 0 2.75rem;
+        }
+
+        .industries-top .section-title {
+            margin-bottom: 0.85rem;
+        }
+
+        .industries-top .section-desc {
+            margin-bottom: 0;
+        }
+
+        .industries-mosaic {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.35rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .industries-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.35rem;
+            min-width: 0;
+        }
+
+        .industries-col--center .industries-sub {
+            text-align: center;
+            padding: 0 0.35rem 0.15rem;
+            margin: 0 0 0.15rem;
+        }
+
+        .industries-sub-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 46px;
+            font-weight: 600;
+            font-style: normal;
+            line-height: 100%;
+            letter-spacing: 0.05em;
+            text-align: center;
+            vertical-align: middle;
+            leading-trim: none;
+            text-box-trim: none;
+            color: var(--text);
+            margin: 0 0 0.85rem;
+        }
+
+        [data-theme="dark"] .industries-sub-title {
+            color: var(--text);
+        }
+
+        .industries-sub-lead {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.98rem;
+            line-height: 1.72;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        [data-theme="dark"] .industries-sub-lead {
+            color: var(--text-muted);
+        }
+
+        .industry-card {
+            border-radius: 16px;
+            overflow: visible;
+            background: var(--industry-card-surface);
+            box-shadow: 0 12px 36px rgba(10, 22, 40, 0.07);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.15rem, 2.8vw, 1.5rem);
+            padding: clamp(1.15rem, 2.8vw, 1.5rem);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        [data-theme="dark"] .industry-card {
+            background: var(--industry-card-surface);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 48px rgba(2, 87, 185, 0.12);
+        }
+
+        [data-theme="dark"] .industry-card:hover {
+            box-shadow: 0 22px 52px rgba(2, 87, 185, 0.2);
+        }
+
+        .industry-card-media {
+            position: relative;
+            width: 100%;
+            flex-shrink: 0;
+            aspect-ratio: 16 / 10.5;
+            background: rgba(2, 11, 20, 0.04);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 26px rgba(10, 22, 40, 0.12), 0 2px 8px rgba(10, 22, 40, 0.06);
+        }
+
+        [data-theme="dark"] .industry-card-media {
+            background: rgba(0, 0, 0, 0.28);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.35);
+        }
+
+        .industry-card-media--gaming {
+            aspect-ratio: 16 / 10.8;
+            min-height: 200px;
+        }
+
+        .industry-card--gaming .industry-card-body {
+            padding-bottom: 0;
+        }
+
+        .industry-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            display: block;
+        }
+
+        .industry-card-body {
+            padding: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        #industries h3.industry-card-title {
+            font-family: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+            font-size: 44px;
+            font-weight: 400;
+            font-style: normal;
+            font-stretch: normal;
+            font-synthesis: none;
+            line-height: 100%;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-align: left;
+            vertical-align: middle;
+            leading-trim: none;
+            text-box-trim: none;
+            color: var(--industry-card-title);
+            margin: 0;
+        }
+
+        .industry-card-desc {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.68;
+            text-align: left;
+            color: var(--industry-card-text);
+            margin: 0;
+        }
+
         /* FREE ASSESSMENTS */
         #offers {
             background: var(--bg);
@@ -2168,6 +2393,8 @@
         .offer-card h3 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 2.2rem;
+            font-weight: 400;
+            font-synthesis: none;
             line-height: 1.1;
             letter-spacing: 0.03em;
             color: var(--text);
@@ -2205,15 +2432,14 @@
 
         .pricing-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-weight: 700;
-            font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+            font-weight: 400;
+            font-synthesis: none;
+            font-size: clamp(2.2rem, 3.8vw, 3.05rem);
             line-height: 1;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.055em;
             text-transform: uppercase;
             color: var(--text);
             margin-bottom: 1.1rem;
-            -webkit-text-stroke: 1px var(--text);
-            text-stroke: 1px var(--text);
         }
 
         .pricing-subtitle {
@@ -2294,7 +2520,7 @@
         .pricing-name {
             font-family: 'DM Sans', sans-serif;
             font-size: 1.6rem;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: -0.01em;
             color: var(--text);
             line-height: 1.1;
@@ -2490,7 +2716,7 @@
         .addon-title {
             font-family: 'DM Sans', sans-serif;
             font-size: 1.15rem;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: -0.005em;
             color: var(--text);
             line-height: 1.2;
@@ -2523,7 +2749,7 @@
         .addon-row-price {
             font-family: 'DM Sans', sans-serif;
             font-size: 1.05rem;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--text);
             white-space: nowrap;
         }
@@ -2611,9 +2837,65 @@
         .mv-card h4 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.4rem;
+            font-weight: 400;
+            font-synthesis: none;
             letter-spacing: 0.05em;
             color: var(--accent);
             margin-bottom: 0.6rem;
+        }
+
+        /* Bebas Neue display — lighter on-screen (400 is the only master; soften color + AA) */
+        .section-title,
+        .stat-number,
+        .auth-logo,
+        .offer-card h3,
+        .pricing-title,
+        .pricing-addons-title,
+        .mv-card h4,
+        #industries h3.industry-card-title {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: geometricPrecision;
+        }
+
+        [data-theme="light"] .section-title,
+        [data-theme="light"] .pricing-title,
+        [data-theme="light"] .pricing-addons-title,
+        [data-theme="light"] .offer-card h3 {
+            color: color-mix(in srgb, var(--text) 82%, #ffffff);
+        }
+
+        [data-theme="dark"] .section-title,
+        [data-theme="dark"] .pricing-title,
+        [data-theme="dark"] .pricing-addons-title,
+        [data-theme="dark"] .offer-card h3 {
+            color: color-mix(in srgb, var(--text) 88%, var(--bg));
+        }
+
+        [data-theme="light"] .stat-number,
+        [data-theme="light"] .mv-card h4 {
+            color: color-mix(in srgb, var(--accent) 88%, #ffffff);
+        }
+
+        [data-theme="dark"] .stat-number,
+        [data-theme="dark"] .mv-card h4 {
+            color: color-mix(in srgb, var(--accent) 90%, var(--bg));
+        }
+
+        [data-theme="light"] #industries h3.industry-card-title {
+            color: color-mix(in srgb, var(--industry-card-title) 85%, #ffffff);
+        }
+
+        [data-theme="dark"] #industries h3.industry-card-title {
+            color: color-mix(in srgb, var(--industry-card-title) 90%, var(--bg));
+        }
+
+        [data-theme="light"] .auth-logo {
+            color: color-mix(in srgb, var(--text) 82%, #ffffff);
+        }
+
+        [data-theme="dark"] .auth-logo {
+            color: color-mix(in srgb, var(--text) 88%, var(--bg));
         }
 
         .mv-card p {
@@ -2694,9 +2976,20 @@
         }
 
         @keyframes form-submit-pop {
-            0% { transform: scale(0.4); opacity: 0; }
-            60% { transform: scale(1.15); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(0.4);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .contact-info {
@@ -2740,6 +3033,7 @@
 
         .contact-block h5 {
             font-size: 0.78rem;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--text-muted);
@@ -2830,6 +3124,656 @@
             background: var(--accent-light);
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(2, 87, 185, 0.4);
+        }
+
+        /* NAV — ENTERPRISE CTA */
+        .nav-enterprise-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            box-shadow: 0 6px 24px var(--accent-glow);
+            border: 1px solid transparent;
+        }
+
+        .nav-enterprise-cta:hover {
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            box-shadow: 0 10px 30px rgba(2, 87, 185, 0.45);
+        }
+
+        .nav-cta-icon {
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        /* ENTERPRISE QUOTE SECTION */
+        #enterprise-quote {
+            position: relative;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+            isolation: isolate;
+            transition: background 0.4s;
+            padding: 3.25rem 0 4rem;
+        }
+
+        .eq-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .eq-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .eq-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+
+        .eq-orb-1 {
+            width: 420px;
+            height: 420px;
+            background: var(--accent-glow);
+            top: -120px;
+            right: -80px;
+        }
+
+        .eq-orb-2 {
+            width: 360px;
+            height: 360px;
+            background: var(--accent-soft);
+            bottom: -120px;
+            left: -80px;
+        }
+
+        .eq-shell {
+            position: relative;
+            z-index: 1;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 6%;
+            display: grid;
+            grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.05fr);
+            gap: 2rem 2.5rem;
+            align-items: start;
+        }
+
+        .eq-visual {
+            position: relative;
+            border-radius: 20px;
+            min-height: 200px;
+        }
+
+        .eq-visual-glow {
+            position: absolute;
+            inset: -14% -10% auto -10%;
+            height: 58%;
+            background: radial-gradient(ellipse at 50% 0%, var(--accent-soft), transparent 70%);
+            opacity: 0.85;
+            animation: eqGlowPulse 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes eqGlowPulse {
+
+            0%,
+            100% {
+                opacity: 0.62;
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(5px) scale(1.03);
+            }
+        }
+
+        .eq-visual-frame {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-strong);
+            box-shadow: var(--shadow-card);
+            aspect-ratio: 4 / 5;
+            max-height: 440px;
+            background: var(--surface);
+            animation: eqFrameIn 0.85s ease-out both;
+        }
+
+        @keyframes eqFrameIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .eq-visual-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1.02);
+            transition: transform 8s ease-out;
+        }
+
+        .eq-visual:hover .eq-visual-frame img {
+            transform: scale(1.07);
+        }
+
+        .eq-badge {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 0.05rem;
+            padding: 0.5rem 0.7rem;
+            background: rgba(255, 255, 255, 0.93);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: 0 10px 32px rgba(2, 20, 48, 0.12);
+            backdrop-filter: blur(8px);
+            animation: eqFloat 5.5s ease-in-out infinite;
+        }
+
+        [data-theme="dark"] .eq-badge {
+            background: rgba(22, 28, 42, 0.93);
+        }
+
+        .eq-badge--1 {
+            top: 9%;
+            right: -0.2rem;
+            animation-delay: 0s;
+        }
+
+        .eq-badge--2 {
+            bottom: 30%;
+            left: -0.35rem;
+            animation-delay: -1.8s;
+        }
+
+        .eq-badge--3 {
+            bottom: 8%;
+            right: 6%;
+            animation-delay: -3.1s;
+        }
+
+        @keyframes eqFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        .eq-badge-k {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+        }
+
+        .eq-badge-v {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            line-height: 1.2;
+            max-width: 118px;
+        }
+
+        .eq-main {
+            position: relative;
+            min-width: 0;
+        }
+
+        .eq-intro {
+            margin: 0 0 1rem;
+            max-width: 52ch;
+        }
+
+        .eq-intro .section-label {
+            margin-bottom: 0.3rem;
+        }
+
+        .eq-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1.45rem, 2.1vw, 1.95rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .eq-lead {
+            margin: 0.45rem 0 0;
+            font-size: 0.9rem;
+            line-height: 1.52;
+            color: var(--text-muted);
+        }
+
+        .eq-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.2rem 1.3rem 1.4rem;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eq-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2), #38BDF8, var(--accent));
+            background-size: 300% 100%;
+            animation: barShift 4s linear infinite;
+        }
+
+        .eq-form-feedback {
+            font-size: 0.88rem;
+            line-height: 1.45;
+            padding: 0.65rem 0.85rem;
+            border-radius: 8px;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-strong);
+        }
+
+        .eq-fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 0.72rem;
+            padding-bottom: 0.95rem;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .eq-fieldset--tight {
+            padding-bottom: 0.85rem;
+        }
+
+        .eq-fieldset:last-of-type {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .eq-fieldset-head {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .eq-fieldset-head h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .eq-block-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.66rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.11em;
+            color: var(--accent);
+            margin: 0 0 0.15rem;
+        }
+
+        .eq-form .form-row {
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 1rem;
+        }
+
+        .eq-form .eq-form-row-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .eq-form .eq-form-row-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .eq-label-hint {
+            color: var(--text-faint);
+            text-transform: none;
+            letter-spacing: 0.01em;
+            font-weight: 400;
+            font-size: 0.7rem;
+            margin-left: 0.3rem;
+        }
+
+        .eq-chip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 0.55rem;
+        }
+
+        .eq-chip-grid-compact {
+            grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+        }
+
+        .eq-chip-grid-services {
+            grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+            gap: 0.42rem;
+        }
+
+        .eq-chip {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.48rem;
+            padding: 0.48rem 0.62rem;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.76rem;
+            color: var(--text);
+            font-weight: 500;
+            transition: border-color 0.2s, background 0.2s, transform 0.15s, box-shadow 0.2s;
+            user-select: none;
+            line-height: 1.22;
+        }
+
+        .eq-chip:hover {
+            border-color: var(--border-strong);
+            background: var(--card-hover);
+            transform: translateY(-1px);
+        }
+
+        .eq-chip input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 5px;
+            border: 1.5px solid var(--border-strong);
+            background: var(--card);
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+            margin: 0;
+        }
+
+        .eq-chip input[type="checkbox"]:hover {
+            border-color: var(--accent);
+        }
+
+        .eq-chip input[type="checkbox"]:checked {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 4px 10px var(--accent-glow);
+        }
+
+        .eq-chip input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 47%;
+            width: 5px;
+            height: 9px;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: translate(-50%, -55%) rotate(45deg);
+            animation: eqCheckIn 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes eqCheckIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -55%) rotate(45deg) scale(0.4);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -55%) rotate(45deg) scale(1);
+            }
+        }
+
+        .eq-chip input[type="checkbox"]:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .eq-chip:has(input:checked) {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .eq-chip:has(input:checked) {
+            background: rgba(2, 87, 185, 0.18);
+        }
+
+        .eq-details {
+            border: 1px dashed var(--border);
+            border-radius: 11px;
+            background: var(--surface);
+            overflow: hidden;
+        }
+
+        .eq-details-summary {
+            cursor: pointer;
+            list-style: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            padding: 0.6rem 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            user-select: none;
+        }
+
+        .eq-details-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .eq-details-summary::after {
+            content: '+';
+            margin-left: auto;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .eq-details[open] .eq-details-summary::after {
+            content: '\2212';
+        }
+
+        .eq-details-body {
+            padding: 0 0.8rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.72rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .eq-details-body textarea {
+            min-height: 70px;
+        }
+
+        .eq-radio-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .eq-radio {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.52rem 0.85rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .eq-radio input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-strong);
+            background: var(--card);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .eq-radio input[type="radio"]:checked {
+            border-color: var(--accent);
+        }
+
+        .eq-radio input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .eq-radio:has(input:checked) {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .eq-form-footer {
+            display: grid;
+            grid-template-columns: 1.15fr 0.95fr;
+            gap: 1rem 1.25rem;
+            align-items: center;
+            padding-top: 0.25rem;
+        }
+
+        .eq-form-fineprint {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.42;
+            margin: 0;
+        }
+
+        .eq-lock {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .eq-submit {
+            font-size: 0.92rem;
+            padding: 0.95rem 1.25rem;
+            width: 100%;
+        }
+
+        @media (max-width: 960px) {
+            .eq-shell {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .eq-visual {
+                max-width: 440px;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .eq-visual-frame {
+                max-height: 300px;
+                aspect-ratio: 16 / 10;
+            }
+
+            .eq-badge--1 {
+                right: 5%;
+            }
+
+            .eq-badge--2 {
+                left: 5%;
+            }
+
+            .eq-badge--3 {
+                right: 10%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            #enterprise-quote {
+                padding: 2.5rem 0 3rem;
+            }
+
+            .eq-form .eq-form-row-4,
+            .eq-form .eq-form-row-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .eq-chip-grid-services,
+            .eq-chip-grid-compact {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .eq-form {
+                padding: 1.15rem 1.15rem 1.35rem;
+            }
+
+            .eq-form-footer {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+        }
+
+        @media (max-width: 540px) {
+
+            .eq-chip-grid-services,
+            .eq-chip-grid-compact {
+                grid-template-columns: 1fr;
+            }
+
+            .eq-form .eq-form-row-4,
+            .eq-form .eq-form-row-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .eq-form {
+                padding: 1.05rem 0.95rem 1.25rem;
+            }
         }
 
         /* FOOTER */
@@ -2950,6 +3894,32 @@
                 gap: 2.5rem;
             }
 
+            .eq-form {
+                padding: 1.5rem 1.3rem 1.7rem;
+            }
+
+            .eq-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .eq-form .eq-form-row-4,
+            .eq-form .eq-form-row-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .eq-chip-grid,
+            .eq-chip-grid-compact {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-enterprise-cta span {
+                display: none;
+            }
+
+            .nav-enterprise-cta {
+                padding: 0.55rem 0.85rem;
+            }
+
             .why-visual,
             .about-visual {
                 height: 260px;
@@ -2957,6 +3927,26 @@
 
             .offers-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .industries-mosaic {
+                display: flex;
+                flex-direction: column;
+                gap: 1.35rem;
+                max-width: 520px;
+                margin: 0 auto;
+            }
+
+            .industries-col--left {
+                order: 1;
+            }
+
+            .industries-col--center {
+                order: 2;
+            }
+
+            .industries-col--right {
+                order: 3;
             }
 
             .pricing-grid {
@@ -3103,6 +4093,28 @@
                 min-height: 0;
                 max-width: 100%;
             }
+
+            .eq-chip-grid,
+            .eq-chip-grid-compact {
+                grid-template-columns: 1fr;
+            }
+
+            .eq-form .eq-form-row-4,
+            .eq-form .eq-form-row-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .eq-form {
+                padding: 1.25rem 1.05rem 1.5rem;
+            }
+
+            .eq-fieldset-head h4 {
+                font-size: 0.95rem;
+            }
+
+            .eq-radio-row {
+                gap: 0.4rem;
+            }
         }
 
         @keyframes shake {
@@ -3245,19 +4257,28 @@
 </div>
 <!-- NAV — Added "Home" link -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo" aria-label="Interia Technologies home">
-    <img src="http://interia.test/images/interia-logo.png" alt="Interia Technologies" />
+  <a href="https://interia-41v9.vercel.app" class="nav-logo" aria-label="Interia Technologies home">
+    <img src="https://interia-41v9.vercel.app/images/interia-logo.png" alt="Interia Technologies" />
   </a>
   <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#assessments">Free Assessments</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <li><a href="https://interia-41v9.vercel.app">Home</a></li>
+          <li><a href="https://interia-41v9.vercel.app/services">Services</a></li>
+              <li><a href="https://interia-41v9.vercel.app/industries">Industries</a></li>
+              <li><a href="https://interia-41v9.vercel.app/why">Why Us</a></li>
+                  <li><a href="https://interia-41v9.vercel.app/offers">Free Assessments</a></li>
+              <li><a href="https://interia-41v9.vercel.app/about">About</a></li>
+              <li><a href="https://interia-41v9.vercel.app/contact">Contact</a></li>
+      </ul>
   <div class="nav-right">
+    <a href="https://interia-41v9.vercel.app/pricing" class="nav-cta nav-enterprise-cta">
+      <svg class="nav-cta-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 21h18"/>
+        <path d="M5 21V8l5-3 5 3v13"/>
+        <path d="M15 21V11l4-2v12"/>
+        <path d="M9 12h2M9 16h2"/>
+      </svg>
+      <span>Get Enterprise Quote</span>
+    </a>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Switch to dark theme" aria-label="Switch to dark theme">
       <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
@@ -3279,7 +4300,7 @@
 <section id="hero">
   <div class="hero-video" aria-hidden="true">
     <video autoplay muted loop playsinline preload="metadata">
-      <source src="http://interia.test/videos/it-video.mp4" type="video/mp4" />
+      <source src="https://interia-41v9.vercel.app/videos/it-video.mp4" type="video/mp4" />
     </video>
   </div>
   <div class="hero-grid"></div>
@@ -3357,12 +4378,12 @@
     </div>
 
     <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">
-        <img class="btn-icon" src="http://interia.test/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
+      <a href="https://interia-41v9.vercel.app/contact" class="btn-primary">
+        <img class="btn-icon" src="https://interia-41v9.vercel.app/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
         Free IT Assessment
       </a>
-      <a href="#offers" class="btn-secondary">
-        <img class="btn-icon" src="http://interia.test/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
+      <a href="https://interia-41v9.vercel.app/offers" class="btn-secondary">
+        <img class="btn-icon" src="https://interia-41v9.vercel.app/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
         Free AI Workshops →
       </a>
     </div>
@@ -3398,7 +4419,7 @@ for Small Business</h2>
     <div class="services-strip-track">
                         <div class="strip-img">
             <img
-              src="http://interia.test/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
+              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
               alt="IT technician at server rack"
               loading="lazy"
             />
@@ -3406,7 +4427,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
+              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
               alt="IT team meeting"
               loading="lazy"
             />
@@ -3414,7 +4435,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/ON-call%20support.png"
+              src="https://interia-41v9.vercel.app/service-carousel/ON-call%20support.png"
               alt="IT support specialist"
               loading="lazy"
             />
@@ -3422,7 +4443,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/Network%20setup.png"
+              src="https://interia-41v9.vercel.app/service-carousel/Network%20setup.png"
               alt="Network infrastructure"
               loading="lazy"
             />
@@ -3430,7 +4451,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/security%20operations.png"
+              src="https://interia-41v9.vercel.app/service-carousel/security%20operations.png"
               alt="Cybersecurity monitoring"
               loading="lazy"
             />
@@ -3438,7 +4459,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/IT%20Consultation.png"
+              src="https://interia-41v9.vercel.app/service-carousel/IT%20Consultation.png"
               alt="Business IT consultation"
               loading="lazy"
             />
@@ -3446,7 +4467,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/cloud%20migration.png"
+              src="https://interia-41v9.vercel.app/service-carousel/cloud%20migration.png"
               alt="Cloud computing setup"
               loading="lazy"
             />
@@ -3454,7 +4475,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/Data%20center.png"
+              src="https://interia-41v9.vercel.app/service-carousel/Data%20center.png"
               alt="Data center management"
               loading="lazy"
             />
@@ -3462,7 +4483,7 @@ for Small Business</h2>
           </div>
                                 <div class="strip-img">
             <img
-              src="http://interia.test/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
+              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR66X8MZ3CK6Z3Q78YAHH52B.png"
               alt="IT technician at server rack"
               loading="lazy"
             />
@@ -3470,7 +4491,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
+              src="https://interia-41v9.vercel.app/storage/service-carousel/01KR6811HP4YNJDA3Y5H207GQQ.png"
               alt="IT team meeting"
               loading="lazy"
             />
@@ -3478,7 +4499,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/ON-call%20support.png"
+              src="https://interia-41v9.vercel.app/service-carousel/ON-call%20support.png"
               alt="IT support specialist"
               loading="lazy"
             />
@@ -3486,7 +4507,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/Network%20setup.png"
+              src="https://interia-41v9.vercel.app/service-carousel/Network%20setup.png"
               alt="Network infrastructure"
               loading="lazy"
             />
@@ -3494,7 +4515,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/security%20operations.png"
+              src="https://interia-41v9.vercel.app/service-carousel/security%20operations.png"
               alt="Cybersecurity monitoring"
               loading="lazy"
             />
@@ -3502,7 +4523,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/IT%20Consultation.png"
+              src="https://interia-41v9.vercel.app/service-carousel/IT%20Consultation.png"
               alt="Business IT consultation"
               loading="lazy"
             />
@@ -3510,7 +4531,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/cloud%20migration.png"
+              src="https://interia-41v9.vercel.app/service-carousel/cloud%20migration.png"
               alt="Cloud computing setup"
               loading="lazy"
             />
@@ -3518,7 +4539,7 @@ for Small Business</h2>
           </div>
                   <div class="strip-img">
             <img
-              src="http://interia.test/service-carousel/Data%20center.png"
+              src="https://interia-41v9.vercel.app/service-carousel/Data%20center.png"
               alt="Data center management"
               loading="lazy"
             />
@@ -3530,7 +4551,7 @@ for Small Business</h2>
     <div class="services-grid">
                 <div class="service-card reveal">
                   <div class="service-icon">
-            <img src="http://interia.test/images/icon-laptop.svg" alt="" aria-hidden="true" />
+            <img src="https://interia-41v9.vercel.app/images/icon-laptop.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Managed IT Services</h3>
         <p>Proactive monitoring, support, and maintenance to keep your systems running smoothly — 24/7, without the headaches.</p>
@@ -3538,7 +4559,7 @@ for Small Business</h2>
       </div>
                 <div class="service-card reveal reveal-delay-1">
                   <div class="service-icon">
-            <img src="http://interia.test/images/icon-cloud.svg" alt="" aria-hidden="true" />
+            <img src="https://interia-41v9.vercel.app/images/icon-cloud.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Cloud &amp; Server Management</h3>
         <p>We manage your cloud environments, servers, and infrastructure so you can focus on running your business, not your tech stack.</p>
@@ -3546,7 +4567,7 @@ for Small Business</h2>
       </div>
                 <div class="service-card reveal reveal-delay-2">
                   <div class="service-icon">
-            <img src="http://interia.test/images/icon-security.svg" alt="" aria-hidden="true" />
+            <img src="https://interia-41v9.vercel.app/images/icon-security.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Cybersecurity</h3>
         <p>Advanced protection against modern threats, using enterprise-grade tools and practices typically reserved for large corporations.</p>
@@ -3554,7 +4575,7 @@ for Small Business</h2>
       </div>
                 <div class="service-card reveal reveal-delay-3">
                   <div class="service-icon">
-            <img src="http://interia.test/images/icon-handshake.svg" alt="" aria-hidden="true" />
+            <img src="https://interia-41v9.vercel.app/images/icon-handshake.svg" alt="" aria-hidden="true" />
           </div>
                 <h3>Onsite + Remote Support</h3>
         <p>Unlike others, we include onsite support at no additional cost. Real hands-on help, right when and where you need it.</p>
@@ -3583,7 +4604,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--detect reveal">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="http://interia.test/ai-adoption-icons/detect.svg" alt="" />
+              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/detect.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 01</span>
         </div>
@@ -3593,7 +4614,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--analyze reveal reveal-delay-1">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="http://interia.test/ai-adoption-icons/analyze.svg" alt="" />
+              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/analyze.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 02</span>
         </div>
@@ -3603,7 +4624,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--automate reveal reveal-delay-2">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="http://interia.test/ai-adoption-icons/automate.svg" alt="" />
+              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/automate.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 03</span>
         </div>
@@ -3613,7 +4634,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--secure reveal reveal-delay-3">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="http://interia.test/ai-adoption-icons/secure.svg" alt="" />
+              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/secure.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 04</span>
         </div>
@@ -3623,7 +4644,7 @@ for Small Business</h2>
                 <div class="ai-step ai-step--optimize reveal reveal-delay-4">
         <div class="ai-step-head">
                       <span class="ai-step-icon" aria-hidden="true">
-              <img src="http://interia.test/ai-adoption-icons/optimize.svg" alt="" />
+              <img src="https://interia-41v9.vercel.app/ai-adoption-icons/optimize.svg" alt="" />
             </span>
                     <span class="ai-step-label">Step 05</span>
         </div>
@@ -3639,7 +4660,7 @@ for Small Business</h2>
     <div class="ai-framework">
           <div class="ai-dashboard reveal">
         <img class="ai-dashboard-img"
-             src="http://interia.test/images/ai-system-dashboard.png"
+             src="https://interia-41v9.vercel.app/images/ai-system-dashboard.png"
              alt="AI system dashboard with charts, graphs, and analytics visualizations"
              loading="lazy" />
       </div>
@@ -3667,7 +4688,7 @@ Both Worlds</h2>
               <ul class="why-list">
                                   <li class="why-item reveal">
                               <div class="wi-icon">
-                  <img src="http://interia.test/images/icon-prize.svg" alt="" aria-hidden="true" />
+                  <img src="https://interia-41v9.vercel.app/images/icon-prize.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>Enterprise-Level Expertise</h4>
@@ -3676,7 +4697,7 @@ Both Worlds</h2>
             </li>
                                   <li class="why-item reveal reveal-delay-1">
                               <div class="wi-icon">
-                  <img src="http://interia.test/images/icon-location.svg" alt="" aria-hidden="true" />
+                  <img src="https://interia-41v9.vercel.app/images/icon-location.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>Local Las Vegas Presence</h4>
@@ -3685,7 +4706,7 @@ Both Worlds</h2>
             </li>
                                   <li class="why-item reveal reveal-delay-2">
                               <div class="wi-icon">
-                  <img src="http://interia.test/images/icon-fees.svg" alt="" aria-hidden="true" />
+                  <img src="https://interia-41v9.vercel.app/images/icon-fees.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>No Hidden Fees</h4>
@@ -3694,7 +4715,7 @@ Both Worlds</h2>
             </li>
                                   <li class="why-item reveal reveal-delay-3">
                               <div class="wi-icon">
-                  <img src="http://interia.test/images/icon-power.svg" alt="" aria-hidden="true" />
+                  <img src="https://interia-41v9.vercel.app/images/icon-power.svg" alt="" aria-hidden="true" />
                 </div>
                             <div>
                 <h4>Built for Tech-Reliant Businesses</h4>
@@ -3706,67 +4727,90 @@ Both Worlds</h2>
 
           <div class="why-visual reveal">
         <div class="city-card">
-          <img src="http://interia.test/images/best-of-both-worlds.png"
+          <img src="https://interia-41v9.vercel.app/images/best-of-both-worlds.png"
                alt="Las Vegas skyline with technology icons"
                loading="lazy" />
         </div>
       </div>
       </div>
 </section>
-    <section id="gallery" aria-label="Our people make the difference">
-        <div class="gallery-mosaic-wrap reveal" id="mosaicWrap">
-            <div class="gallery-mosaic mosaic-hidden" id="galleryMosaic">
-                                    <div class="mosaic-card shape-left-top">
-                        <img src="http://interia.test/gallery-mosaic/L.column%2001%20%28a%29.png" alt="Quiet office workspace" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-left-bottom">
-                        <img src="http://interia.test/gallery-mosaic/L.column%2001%20%28b%29.png" alt="Team presentation room" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-team">
-                        <img src="http://interia.test/gallery-mosaic/L.column%2002%20%28a%29.png" alt="People collaborating in a meeting" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-desk">
-                        <img src="http://interia.test/gallery-mosaic/L.column%2002%20%28b%29.png" alt="Shared work desk with laptops" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-office">
-                        <img src="http://interia.test/gallery-mosaic/L.column%2002%20%28c%29.png" alt="Modern office interior" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-coffee">
-                        <img src="http://interia.test/gallery-mosaic/Center%20images01.png" alt="Coffee and notebook on desk" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-window">
-                        <img src="http://interia.test/gallery-mosaic/Center%20images02.png" alt="Laptop beside a bright window" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-people">
-                        <img src="http://interia.test/gallery-mosaic/Center%20images03.png" alt="Coworkers discussing a project" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-meeting">
-                        <img src="http://interia.test/gallery-mosaic/Center%20images04.png" alt="Business meeting at office table" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-notes">
-                        <img src="http://interia.test/gallery-mosaic/R.%20coloumn%2002%20%28a%29.png" alt="Hand writing notes" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-books">
-                        <img src="http://interia.test/gallery-mosaic/R.%20coloumn%2002%20%28b%29.png" alt="Business books stacked on a table" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-laptop">
-                        <img src="http://interia.test/gallery-mosaic/R.%20coloumn%2002%20%28c%29.png" alt="Minimal laptop workspace" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-student">
-                        <img src="http://interia.test/gallery-mosaic/R.%20column%2001%20%28a%29.png" alt="Person working with laptop" loading="lazy" />
-                    </div>
-                                    <div class="mosaic-card shape-culture">
-                        <img src="http://interia.test/gallery-mosaic/R.%20column%2001%20%28b%29.png" alt="Two teammates in conversation" loading="lazy" />
-                    </div>
-                
-                                    <div class="gallery-bg-text" aria-hidden="true">
-                                                    <span>Trusted by creatives and leaders</span>
-                                                                            <span>from various industries</span>
-                                            </div>
+    <section id="industries" aria-labelledby="industries-heading">
+        <header class="industries-top reveal">
+                        <h2 id="industries-heading" class="section-title">Industries</h2>
+                            <p class="section-desc">Technology, security, and cloud solutions tailored to how your sector operates — so your teams stay focused on what matters most.</p>
+                    </header>
+
+        <div class="industries-mosaic">
+            <div class="industries-col industries-col--left">
+                                    <article class="industry-card reveal">
+                        <div class="industry-card-media">
+                <img src="https://interia-41v9.vercel.app/images/industries/small-business.png" alt="Project dashboard on a laptop for a growing business" loading="lazy" width="560" height="360" />
+            </div>
+                <div class="industry-card-body">
+            <h3 class="industry-card-title">Small and Midsize Business</h3>
+            <p class="industry-card-desc">Helping growing businesses streamline operations, improve productivity, and accelerate digital transformation.</p>
+        </div>
+    </article>
+                                    <article class="industry-card reveal reveal-delay-1">
+            <div class="industry-card-body">
+            <h3 class="industry-card-title">Cloud &amp; Automation</h3>
+            <p class="industry-card-desc">Optimizing business workflows through intelligent cloud infrastructure and automated operational solutions.</p>
+        </div>
+                    <div class="industry-card-media">
+                <img src="https://interia-41v9.vercel.app/industry-section-cards/cloud%20%26%20automation.png" alt="Cloud infrastructure and automation concept" loading="lazy" width="560" height="360" />
+            </div>
+            </article>
+                            </div>
+
+            <div class="industries-col industries-col--center">
+                <div class="industries-sub reveal reveal-delay-1">
+                    <p id="industries-sub-focus" class="industries-sub-title">Empowering Diverse Industries</p>
+                                            <p class="industries-sub-lead">Delivering tailored technology solutions that drive innovation, efficiency, and growth across diverse sectors.</p>
+                                    </div>
+
+                                    <article class="industry-card reveal industry-card--gaming reveal-delay-2">
+            <div class="industry-card-body">
+            <h3 class="industry-card-title">Gaming</h3>
+            <p class="industry-card-desc">Delivering scalable and immersive technology solutions designed for modern gaming platforms and interactive experiences.</p>
+        </div>
+                    <div class="industry-card-media industry-card-media--gaming">
+                <img src="https://interia-41v9.vercel.app/images/industries/gaming.png" alt="Immersive gaming platform and interactive entertainment experience" loading="lazy" width="560" height="360" />
+            </div>
+            </article>
+                                    <article class="industry-card reveal reveal-delay-3">
+                        <div class="industry-card-media">
+                <img src="https://interia-41v9.vercel.app/industry-section-cards/security%2002%20%281%29.png" alt="Smart home security and monitoring on a smartphone" loading="lazy" width="560" height="360" />
+            </div>
+                <div class="industry-card-body">
+            <h3 class="industry-card-title">Security and Surveillance</h3>
+            <p class="industry-card-desc">Providing advanced monitoring, surveillance, and security solutions for safer and smarter environments.</p>
+        </div>
+    </article>
+                            </div>
+
+            <div class="industries-col industries-col--right">
+                                    <article class="industry-card reveal">
+            <div class="industry-card-body">
+            <h3 class="industry-card-title">Hospitality</h3>
+            <p class="industry-card-desc">Empowering hospitality businesses with seamless digital experiences, smart operations, and enhanced guest engagement solutions.</p>
+        </div>
+                    <div class="industry-card-media">
+                <img src="https://interia-41v9.vercel.app/industry-section-cards/hospitality2.png" alt="Tablet showing travel and resort digital experience" loading="lazy" width="560" height="360" />
+            </div>
+            </article>
+                                    <article class="industry-card reveal reveal-delay-1">
+            <div class="industry-card-body">
+            <h3 class="industry-card-title">Health Care</h3>
+            <p class="industry-card-desc">Enabling healthcare providers with secure, efficient, and patient-focused digital systems for better care delivery.</p>
+        </div>
+                    <div class="industry-card-media">
+                <img src="https://interia-41v9.vercel.app/industry-section-cards/healthcare.png" alt="Healthcare tablet and digital patient care tools" loading="lazy" width="560" height="360" />
+            </div>
+            </article>
                             </div>
         </div>
     </section>
-    <section id="offers">
+        <section id="offers">
   <div class="section-label reveal">Complimentary</div>
   <h2 class="section-title reveal">Start for Free.<br />
 See the Value.</h2>
@@ -3775,7 +4819,7 @@ See the Value.</h2>
       <div class="offers-grid">
                       <div class="offer-card gold reveal">
                       <div class="offer-icon">
-              <img src="http://interia.test/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
+              <img src="https://interia-41v9.vercel.app/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
             </div>
                     <div class="offer-tag gold-tag">Complimentary</div>
           <h3>Free IT Assessment</h3>
@@ -3784,7 +4828,7 @@ See the Value.</h2>
         </div>
                       <div class="offer-card blue reveal reveal-delay-1">
                       <div class="offer-icon">
-              <img src="http://interia.test/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
+              <img src="https://interia-41v9.vercel.app/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
             </div>
                     <div class="offer-tag blue-tag">Workshop</div>
           <h3>Free AI Workshops</h3>
@@ -3818,6 +4862,9 @@ See the Value.</h2>
                               <li><span class="pricing-check" aria-hidden="true"></span>Standard Backup (Daily)</li>
                               <li><span class="pricing-check" aria-hidden="true"></span>Up to 10 Endpoints</li>
                               <li><span class="pricing-check" aria-hidden="true"></span>Next-Day On-Site Support</li>
+                              <li><span class="pricing-check" aria-hidden="true"></span>Wired &amp; Wireless Network Support</li>
+                              <li><span class="pricing-check" aria-hidden="true"></span>Firewall Support - Upto 2 Firewalls</li>
+                              <li><span class="pricing-check" aria-hidden="true"></span>4-Hour Response SLA</li>
                           </ul>
 
             <a href="#contact" class="pricing-cta pricing-cta-outline">Select Core</a>
@@ -3841,7 +4888,7 @@ See the Value.</h2>
                               <li><span class="pricing-check" aria-hidden="true"></span>Everything in Core</li>
                               <li><span class="pricing-check" aria-hidden="true"></span>Advanced Threat Protection</li>
                               <li><span class="pricing-check" aria-hidden="true"></span>Cloud Backup (Real-time)</li>
-                              <li><span class="pricing-check" aria-hidden="true"></span>4-Hour Response SLA</li>
+                              <li><span class="pricing-check" aria-hidden="true"></span>2-Hour Response SLA</li>
                               <li><span class="pricing-check" aria-hidden="true"></span>Dedicated Account Manager</li>
                           </ul>
 
@@ -3863,9 +4910,11 @@ See the Value.</h2>
 
             <ul class="pricing-features">
                               <li><span class="pricing-check" aria-hidden="true"></span>Everything in Secure</li>
-                              <li><span class="pricing-check" aria-hidden="true"></span>Unlimited Endpoints</li>
                               <li><span class="pricing-check" aria-hidden="true"></span>Full Disaster Recovery Plan</li>
                               <li><span class="pricing-check" aria-hidden="true"></span>Compliance Management</li>
+                              <li><span class="pricing-check" aria-hidden="true"></span>Upto 20 Endpoints</li>
+                              <li><span class="pricing-check" aria-hidden="true"></span>Upto 5 Servers</li>
+                              <li><span class="pricing-check" aria-hidden="true"></span>15-Minutes Response SLA</li>
                           </ul>
 
             <a href="#contact" class="pricing-cta pricing-cta-outline">Talk to Enterprise</a>
@@ -3883,7 +4932,7 @@ See the Value.</h2>
                             <div class="addon-card reveal">
             <div class="addon-head">
                               <span class="addon-icon" aria-hidden="true">
-                  <img src="http://interia.test/pricing-addon-icons/Server%20Pricing.svg" alt="" />
+                  <img src="https://interia-41v9.vercel.app/pricing-addon-icons/Server%20Pricing.svg" alt="" />
                 </span>
                             <h3 class="addon-title">Server Pricing</h3>
             </div>
@@ -3904,7 +4953,7 @@ See the Value.</h2>
                             <div class="addon-card reveal reveal-delay-1">
             <div class="addon-head">
                               <span class="addon-icon" aria-hidden="true">
-                  <img src="http://interia.test/pricing-addon-icons/Cloud%20Pricing.svg" alt="" />
+                  <img src="https://interia-41v9.vercel.app/pricing-addon-icons/Cloud%20Pricing.svg" alt="" />
                 </span>
                             <h3 class="addon-title">Cloud Pricing</h3>
             </div>
@@ -3925,7 +4974,7 @@ See the Value.</h2>
                             <div class="addon-card reveal reveal-delay-2">
             <div class="addon-head">
                               <span class="addon-icon" aria-hidden="true">
-                  <img src="http://interia.test/pricing-addon-icons/Site.svg" alt="" />
+                  <img src="https://interia-41v9.vercel.app/pricing-addon-icons/Site.svg" alt="" />
                 </span>
                             <h3 class="addon-title">Network/Site</h3>
             </div>
@@ -3945,7 +4994,7 @@ See the Value.</h2>
     <section id="about">
     <div class="about-layout">
           <div class="about-visual reveal">
-        <img src="http://interia.test/images/about-interia.png" alt="Connected city skyline representing Interia Technologies" loading="lazy" />
+        <img src="https://interia-41v9.vercel.app/images/about-interia.png" alt="Connected city skyline representing Interia Technologies" loading="lazy" />
       </div>
     
     <div>
@@ -3968,7 +5017,7 @@ Interia Technologies</h2>
 
       <div class="team-note reveal">
         <strong>
-                      <img src="http://interia.test/images/icon-place.svg" alt="" aria-hidden="true" />
+                      <img src="https://interia-41v9.vercel.app/images/icon-place.svg" alt="" aria-hidden="true" />
                     Born and based in Las Vegas, NV.
         </strong>
                    Our team lives here, works here, and is invested in the success of this community. When you partner with Interia, you&#039;re not calling a remote help desk — you&#039;re calling your neighbors.
@@ -3986,7 +5035,7 @@ About Your IT</h2>
                     <div class="contact-info">
                                                         <div class="contact-block reveal">
                         <div class="cb-icon">
-                                                            <img src="http://interia.test/images/icon-location.svg" alt="" aria-hidden="true" />
+                                                            <img src="https://interia-41v9.vercel.app/images/icon-location.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Location</h5>
@@ -3995,7 +5044,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-1">
                         <div class="cb-icon">
-                                                            <img src="http://interia.test/images/icon-phone.svg" alt="" aria-hidden="true" />
+                                                            <img src="https://interia-41v9.vercel.app/images/icon-phone.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Phone</h5>
@@ -4004,7 +5053,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-2">
                         <div class="cb-icon">
-                                                            <img src="http://interia.test/images/icon-email.svg" alt="" aria-hidden="true" />
+                                                            <img src="https://interia-41v9.vercel.app/images/icon-email.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Email</h5>
@@ -4013,7 +5062,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-3">
                         <div class="cb-icon">
-                                                            <img src="http://interia.test/images/icon-time.svg" alt="" aria-hidden="true" />
+                                                            <img src="https://interia-41v9.vercel.app/images/icon-time.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Response Time</h5>
@@ -4022,7 +5071,7 @@ About Your IT</h2>
                     </div>
                                                         <div class="contact-block reveal reveal-delay-4">
                         <div class="cb-icon">
-                                                            <img src="http://interia.test/images/icon-handshake.svg" alt="" aria-hidden="true" />
+                                                            <img src="https://interia-41v9.vercel.app/images/icon-handshake.svg" alt="" aria-hidden="true" />
                                                     </div>
                         <div>
                             <h5>Onsite Support</h5>
@@ -4031,8 +5080,8 @@ About Your IT</h2>
                     </div>
                             </div>
         
-        <form class="contact-form reveal" method="POST" action="http://interia.test/contact" onsubmit="handleSubmit(event)" novalidate>
-            <input type="hidden" name="_token" value="CFfpTpN46KZA6fQRSWapqagsxs1Sj64ofP5GIXgX" autocomplete="off">            <div class="contact-form-feedback" role="status" aria-live="polite" hidden></div>
+        <form class="contact-form reveal" method="POST" action="https://interia-41v9.vercel.app/contact" onsubmit="handleSubmit(event)" novalidate>
+            <input type="hidden" name="_token" value="DFcbuajQlcGYdbPFWZz35VgA6ODLBU6WdAlATUR2" autocomplete="off">            <div class="contact-form-feedback" role="status" aria-live="polite" hidden></div>
             <div class="form-row">
                 <div class="form-group">
                     <label>First Name</label>
@@ -4086,17 +5135,17 @@ About Your IT</h2>
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="http://interia.test/images/interia-logo.png" alt="Interia Technologies" />
+    <img src="https://interia-41v9.vercel.app/images/interia-logo.png" alt="Interia Technologies" />
   </div>
   <p>© 2026 Interia Technologies. Las Vegas, NV. All rights reserved.</p>
   <div class="footer-links">
-    <a href="#hero">Home</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="#assessments">Free Assessments</a>
-  </div>
+    <a href="https://interia-41v9.vercel.app">Home</a>
+          <a href="https://interia-41v9.vercel.app/services">Services</a>
+              <a href="https://interia-41v9.vercel.app/industries">Industries</a>
+                  <a href="https://interia-41v9.vercel.app/about">About</a>
+              <a href="https://interia-41v9.vercel.app/contact">Contact</a>
+              <a href="https://interia-41v9.vercel.app/offers">Free Assessments</a>
+      </div>
 </footer>
 <script>
 /* Cursor glow */
@@ -4238,6 +5287,82 @@ async function handleSubmit(e) {
       btn.classList.remove('is-success');
       btn.disabled = false;
     }, 5000);
+  } catch (err) {
+    btn.innerHTML = originalLabel;
+    btn.classList.remove('is-success');
+    btn.disabled = false;
+
+    if (feedback) {
+      feedback.hidden = false;
+      feedback.textContent = err.message || 'Something went wrong. Please try again.';
+      feedback.style.color = '#dc2626';
+    }
+  }
+}
+
+/* Enterprise Quote form submit */
+async function handleEnterpriseQuoteSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.eq-submit');
+  const feedback = form.querySelector('.eq-form-feedback');
+  const originalLabel = btn.innerHTML;
+  const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
+
+  if (feedback) {
+    feedback.hidden = true;
+    feedback.textContent = '';
+    feedback.style.color = '';
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  btn.classList.remove('is-success');
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-TOKEN': csrf,
+      },
+      body: new FormData(form),
+      credentials: 'same-origin',
+    });
+
+    if (response.status === 422) {
+      const body = await response.json();
+      const messages = Object.values(body.errors || {}).flat();
+      throw new Error(messages[0] || 'Please review the form fields and try again.');
+    }
+
+    if (response.status === 429) {
+      throw new Error('You are sending requests too quickly. Please try again in a minute.');
+    }
+
+    if (!response.ok) {
+      throw new Error('Something went wrong. Please try again in a moment.');
+    }
+
+    const data = await response.json().catch(() => ({}));
+    const successMessage = data.message || 'Quote request received. Our enterprise team will reach out within one business day.';
+
+    btn.innerHTML = CONTACT_SUCCESS_ICON + '<span>Request Sent!</span>';
+    btn.classList.add('is-success');
+    form.reset();
+
+    if (feedback) {
+      feedback.hidden = false;
+      feedback.textContent = successMessage;
+      feedback.style.color = '#15803d';
+    }
+
+    setTimeout(() => {
+      btn.innerHTML = originalLabel;
+      btn.classList.remove('is-success');
+      btn.disabled = false;
+    }, 6000);
   } catch (err) {
     btn.innerHTML = originalLabel;
     btn.classList.remove('is-success');

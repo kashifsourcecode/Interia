@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Resources\AboutSections\AboutSectionResource;
 use App\Filament\Resources\ContactSections\ContactSectionResource;
 use App\Filament\Resources\ContactSubmissions\ContactSubmissionResource;
+use App\Filament\Resources\IndustrySections\IndustrySectionResource;
 use App\Filament\Resources\OfferSections\OfferSectionResource;
 use App\Filament\Resources\PricingSections\PricingSectionResource;
 use App\Filament\Resources\WhySections\WhySectionResource;
@@ -33,12 +34,16 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Interia Technologies')
+            ->brandLogo(asset('images/interia-logo.png'))
+            ->brandLogoHeight('2rem')
             ->colors([
                 'primary' => Color::hex('#0257B9'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->resources([
                 WhySectionResource::class,
+                IndustrySectionResource::class,
                 OfferSectionResource::class,
                 PricingSectionResource::class,
                 AboutSectionResource::class,

@@ -37,7 +37,7 @@
         @endif
         <h3>{{ $card->name }}</h3>
         <p>{{ $card->description }}</p>
-        <a href="{{ $card->cta_url ?: '#contact' }}" class="service-link">{{ $card->cta_label ?: 'Learn more' }} →</a>
+        <a href="{{ $card->cta_url ?: route('website.section.contact') }}" class="service-link">{{ $card->cta_label ?: 'Learn more' }} →</a>
       </div>
     @endforeach
   </div>

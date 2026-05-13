@@ -80,11 +80,11 @@
     </div>
 
     <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">
+      <a href="{{ route('website.section.contact') }}" class="btn-primary">
         <img class="btn-icon" src="{{ asset('images/icon-free-assessment.svg') }}" alt="" aria-hidden="true" />
         Free IT Assessment
       </a>
-      <a href="#offers" class="btn-secondary">
+      <a href="{{ route('website.section.offers') }}" class="btn-secondary">
         <img class="btn-icon" src="{{ asset('images/icon-ai-workshop.svg') }}" alt="" aria-hidden="true" />
         Free AI Workshops →
       </a>

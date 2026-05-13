@@ -19,7 +19,7 @@
           <div class="offer-tag {{ $card->tagCssClass() }}">{{ $card->pill_label }}</div>
           <h3>{{ $card->title }}</h3>
           <p>{{ $card->description }}</p>
-          <a href="{{ $card->cta_url ?: '#contact' }}" class="{{ $card->buttonCssClass() }}" style="width:fit-content;margin-top:0.5rem;">{{ $card->cta_label }}</a>
+          <a href="{{ $card->cta_url ?: route('website.section.contact') }}" class="{{ $card->buttonCssClass() }}" style="width:fit-content;margin-top:0.5rem;">{{ $card->cta_label }}</a>
         </div>
       @endforeach
     </div>

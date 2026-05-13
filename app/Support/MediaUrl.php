@@ -28,6 +28,7 @@ final class MediaUrl
         'about-section',
         'about-section-icons',
         'contact-section-icons',
+        'industry-section-cards',
     ];
 
     public static function fromPath(string $path): string

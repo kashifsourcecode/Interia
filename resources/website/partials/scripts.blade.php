@@ -1,3 +1,15 @@
+@if (filled($scrollTo ?? null))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var el = document.getElementById(@json($scrollTo));
+  if (el) {
+    window.requestAnimationFrame(function () {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+});
+</script>
+@endif
 <script>
 /* Cursor glow */
 const glow = document.getElementById('cursorGlow');
@@ -138,6 +150,82 @@ async function handleSubmit(e) {
       btn.classList.remove('is-success');
       btn.disabled = false;
     }, 5000);
+  } catch (err) {
+    btn.innerHTML = originalLabel;
+    btn.classList.remove('is-success');
+    btn.disabled = false;
+
+    if (feedback) {
+      feedback.hidden = false;
+      feedback.textContent = err.message || 'Something went wrong. Please try again.';
+      feedback.style.color = '#dc2626';
+    }
+  }
+}
+
+/* Enterprise Quote form submit */
+async function handleEnterpriseQuoteSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.eq-submit');
+  const feedback = form.querySelector('.eq-form-feedback');
+  const originalLabel = btn.innerHTML;
+  const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
+
+  if (feedback) {
+    feedback.hidden = true;
+    feedback.textContent = '';
+    feedback.style.color = '';
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  btn.classList.remove('is-success');
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-TOKEN': csrf,
+      },
+      body: new FormData(form),
+      credentials: 'same-origin',
+    });
+
+    if (response.status === 422) {
+      const body = await response.json();
+      const messages = Object.values(body.errors || {}).flat();
+      throw new Error(messages[0] || 'Please review the form fields and try again.');
+    }
+
+    if (response.status === 429) {
+      throw new Error('You are sending requests too quickly. Please try again in a minute.');
+    }
+
+    if (!response.ok) {
+      throw new Error('Something went wrong. Please try again in a moment.');
+    }
+
+    const data = await response.json().catch(() => ({}));
+    const successMessage = data.message || 'Quote request received. Our enterprise team will reach out within one business day.';
+
+    btn.innerHTML = CONTACT_SUCCESS_ICON + '<span>Request Sent!</span>';
+    btn.classList.add('is-success');
+    form.reset();
+
+    if (feedback) {
+      feedback.hidden = false;
+      feedback.textContent = successMessage;
+      feedback.style.color = '#15803d';
+    }
+
+    setTimeout(() => {
+      btn.innerHTML = originalLabel;
+      btn.classList.remove('is-success');
+      btn.disabled = false;
+    }, 6000);
   } catch (err) {
     btn.innerHTML = originalLabel;
     btn.classList.remove('is-success');
