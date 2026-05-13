@@ -16,8 +16,8 @@
           <path d="M0,0 L16,8 L0,16 Z" class="ai-steps-line-arrow" />
         </marker>
       </defs>
-      <polyline class="ai-steps-line-stroke"
-        points="8,335 1145,-28 1175,-45"
+      <line class="ai-steps-line-stroke"
+        x1="8" y1="335" x2="1175" y2="-37.58"
         marker-end="url(#aiArrowHead)" />
     </svg>
     @foreach ($aiAdoptionSection->steps as $step)
