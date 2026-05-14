@@ -1,9 +1,62 @@
-<!-- HERO — Modified text to match Image 2 -->
+@php
+  $bgMode = $heroSection?->background_mode ?? 'video';
+  $videoSrc = ($heroSection && filled($heroSection->background_video_path))
+    ? $heroSection->backgroundVideoSrc()
+    : asset('videos/it-video.mp4');
+  $bgImageUrl = $heroSection?->resolvedBackgroundImageUrl() ?? '';
+
+  $badgeText = $heroSection?->badge_text;
+  $headlineLine1 = $heroSection?->headline_line_1 ?? 'Technology solutions';
+  $headlineLine2Lead = $heroSection?->headline_line_2_lead ?? 'that ';
+  $headlineLine2Accent = $heroSection?->headline_line_2_accent ?? 'power your business.';
+  $subheadline = $heroSection?->subheadline ?? 'Enterprise-grade IT services with a local team and no extra cost for onsite support.';
+
+  $primaryLabel = $heroSection?->primary_cta_label ?? 'Free IT Assessment';
+  $primaryUrl = $heroSection ? $heroSection->resolvedCtaUrl((string) $heroSection->primary_cta_url) : route('website.section.contact');
+  $primaryIcon = filled($heroSection?->resolvedPrimaryCtaIconUrl())
+    ? $heroSection->resolvedPrimaryCtaIconUrl()
+    : asset('images/icon-free-assessment.svg');
+
+  $secondaryLabel = $heroSection?->secondary_cta_label ?? 'Free AI Workshops';
+  $secondaryUrl = $heroSection ? $heroSection->resolvedCtaUrl((string) $heroSection->secondary_cta_url) : route('website.section.offers');
+  $secondaryIcon = filled($heroSection?->resolvedSecondaryCtaIconUrl())
+    ? $heroSection->resolvedSecondaryCtaIconUrl()
+    : asset('images/icon-ai-workshop.svg');
+  $secondaryShowArrow = $heroSection?->secondary_cta_show_arrow ?? true;
+
+  $defaultChips = collect([
+    'Fast Response Times',
+    'Onsite Support Included',
+    'Enterprise-Grade Security',
+    'Local Las Vegas Team',
+  ])->map(fn (string $label): object => (object) ['label' => $label]);
+
+  $trustChips = ($heroSection && $heroSection->trustChips->isNotEmpty())
+    ? $heroSection->trustChips
+    : $defaultChips;
+
+  $defaultStats = collect([
+    (object) ['label' => 'Businesses Served', 'static_display' => null, 'count_target' => 200, 'count_as_decimal' => false, 'suffix_after_count' => null],
+    (object) ['label' => 'Uptime SLA %', 'static_display' => null, 'count_target' => 99.9, 'count_as_decimal' => true, 'suffix_after_count' => null],
+    (object) ['label' => 'Avg Response Time', 'static_display' => null, 'count_target' => 15, 'count_as_decimal' => false, 'suffix_after_count' => 'min'],
+    (object) ['label' => 'Years Experience', 'static_display' => null, 'count_target' => 10, 'count_as_decimal' => false, 'suffix_after_count' => '+'],
+  ]);
+
+  $statItems = ($heroSection && $heroSection->statItems->isNotEmpty())
+    ? $heroSection->statItems
+    : $defaultStats;
+@endphp
+
+<!-- HERO — content from admin (Homepage Hero) -->
 <section id="hero">
   <div class="hero-video" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="{{ asset('videos/it-video.mp4') }}" type="video/mp4" />
-    </video>
+    @if ($bgMode === 'image' && filled($bgImageUrl))
+      <div class="hero-bg-image" style="background-image: url({{ json_encode($bgImageUrl) }});"></div>
+    @else
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="{{ $videoSrc }}" type="video/mp4" />
+      </video>
+    @endif
   </div>
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
@@ -53,40 +106,38 @@
     </svg>
   </div>
 
-  <!-- MODIFIED HERO CONTENT — matches Image 2 layout -->
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Las Vegas — Local IT Experts
-    </div>
+    @if (filled($badgeText))
+      <div class="hero-badge">
+        <span class="dot"></span>
+        {{ $badgeText }}
+      </div>
+    @endif
 
     <h1 class="hero-headline">
-      Technology solutions<br/>
-      that <span class="accent">power your business.</span>
+      {!! nl2br(e($headlineLine1)) !!}<br/>
+      {{ $headlineLine2Lead }}<span class="accent">{{ $headlineLine2Accent }}</span>
     </h1>
 
     <div class="hero-sub-block">
       <div class="hero-sub-bar"></div>
-      <p class="hero-sub">
-        Enterprise-grade IT services with a local team and no extra cost for onsite support.
-      </p>
+      <p class="hero-sub">{{ $subheadline }}</p>
     </div>
 
     <div class="hero-trust">
-      <div class="trust-chip"><span class="check">✔</span> Fast Response Times</div>
-      <div class="trust-chip"><span class="check">✔</span> Onsite Support Included</div>
-      <div class="trust-chip"><span class="check">✔</span> Enterprise-Grade Security</div>
-      <div class="trust-chip"><span class="check">✔</span> Local Las Vegas Team</div>
+      @foreach ($trustChips as $chip)
+        <div class="trust-chip"><span class="check">✔</span> {{ $chip->label }}</div>
+      @endforeach
     </div>
 
     <div class="hero-ctas">
-      <a href="{{ route('website.section.contact') }}" class="btn-primary">
-        <img class="btn-icon" src="{{ asset('images/icon-free-assessment.svg') }}" alt="" aria-hidden="true" />
-        Free IT Assessment
+      <a href="{{ $primaryUrl }}" class="btn-primary">
+        <img class="btn-icon" src="{{ $primaryIcon }}" alt="" aria-hidden="true" />
+        {{ $primaryLabel }}
       </a>
-      <a href="{{ route('website.section.offers') }}" class="btn-secondary">
-        <img class="btn-icon" src="{{ asset('images/icon-ai-workshop.svg') }}" alt="" aria-hidden="true" />
-        Free AI Workshops →
+      <a href="{{ $secondaryUrl }}" class="btn-secondary">
+        <img class="btn-icon" src="{{ $secondaryIcon }}" alt="" aria-hidden="true" />
+        {{ $secondaryLabel }}@if ($secondaryShowArrow)<span aria-hidden="true"> →</span>@endif
       </a>
     </div>
   </div>
@@ -94,20 +145,35 @@
 
 <!-- STATS BAND -->
 <div class="stats-band">
-  <div class="stat-item reveal">
-    <div class="stat-number" data-target="200">0</div>
-    <div class="stat-label">Businesses Served</div>
-  </div>
-  <div class="stat-item reveal reveal-delay-1">
-    <div class="stat-number" data-target="99.9" data-decimal>0</div>
-    <div class="stat-label">Uptime SLA %</div>
-  </div>
-  <div class="stat-item reveal reveal-delay-2">
-    <div class="stat-number"><span data-target="15" class="count-num">0</span>min</div>
-    <div class="stat-label">Avg Response Time</div>
-  </div>
-  <div class="stat-item reveal reveal-delay-3">
-    <div class="stat-number"><span data-target="10" class="count-num">0</span>+</div>
-    <div class="stat-label">Years Experience</div>
-  </div>
+  @foreach ($statItems as $stat)
+    @php
+      $delayClass = $loop->index > 0 ? ' reveal-delay-'.min($loop->index, 3) : '';
+      $static = isset($stat->static_display) ? trim((string) $stat->static_display) : '';
+      $target = $stat->count_target ?? null;
+      $suffix = isset($stat->suffix_after_count) ? trim((string) $stat->suffix_after_count) : '';
+      $asDecimal = (bool) ($stat->count_as_decimal ?? false);
+    @endphp
+    <div class="stat-item reveal{{ $delayClass }}">
+      @if ($static !== '')
+        <div class="stat-number">{{ $static }}</div>
+      @elseif ($suffix !== '' && $target !== null)
+        <div class="stat-number">
+          <span
+            class="count-num"
+            data-target="{{ $target }}"
+            @if ($asDecimal) data-decimal @endif
+          >0</span>{{ $suffix }}
+        </div>
+      @elseif ($target !== null)
+        <div
+          class="stat-number"
+          data-target="{{ $target }}"
+          @if ($asDecimal) data-decimal @endif
+        >0</div>
+      @else
+        <div class="stat-number">—</div>
+      @endif
+      <div class="stat-label">{{ $stat->label }}</div>
+    </div>
+  @endforeach
 </div>

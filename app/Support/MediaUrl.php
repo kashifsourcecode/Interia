@@ -29,6 +29,8 @@ final class MediaUrl
         'about-section-icons',
         'contact-section-icons',
         'industry-section-cards',
+        'hero-section',
+        'hero-section-cta-icons',
     ];
 
     public static function fromPath(string $path): string

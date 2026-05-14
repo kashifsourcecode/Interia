@@ -6,6 +6,7 @@ use App\Models\AboutSection;
 use App\Models\AiAdoptionSection;
 use App\Models\ContactSection;
 use App\Models\GallerySection;
+use App\Models\HeroSection;
 use App\Models\IndustrySection;
 use App\Models\OfferSection;
 use App\Models\PricingSection;
@@ -69,6 +70,17 @@ class AppServiceProvider extends ServiceProvider
                     ->where('is_active', true)
                     ->exists(),
             ]);
+        });
+
+        View::composer('website::sections.hero', function ($view): void {
+            $view->with(
+                'heroSection',
+                HeroSection::query()
+                    ->where('slug', 'home')
+                    ->where('is_active', true)
+                    ->with(['trustChips', 'statItems'])
+                    ->first(),
+            );
         });
 
         View::composer('website::sections.services', function ($view): void {

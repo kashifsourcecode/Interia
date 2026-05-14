@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="csrf-token" content="DFcbuajQlcGYdbPFWZz35VgA6ODLBU6WdAlATUR2" />
+<meta name="csrf-token" content="xMuT8IrEIf4uWJPMcMA6WlHrf0TT9ZmVjsBE2ReL" />
 <title>Interia Technologies — Managed IT for Las Vegas Businesses</title>
 <link rel="icon" type="image/png" href="https://interia-41v9.vercel.app/images/interia-logo.png" sizes="any" />
 <link rel="apple-touch-icon" href="https://interia-41v9.vercel.app/images/interia-logo.png" />
@@ -813,6 +813,14 @@
             opacity: 0.5;
         }
 
+        .hero-video .hero-bg-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+        }
+
         .hero-grid {
             position: absolute;
             inset: 0;
@@ -921,9 +929,10 @@
 
         /* Keep hero section dark-style even in light theme */
         [data-theme="light"] #hero .hero-badge {
-            background: rgba(2, 87, 185, 0.12);
-            border-color: rgba(2, 87, 185, 0.35);
-            color: #9fc2ff;
+            background: rgba(4, 14, 26, 0.88);
+            border-color: rgba(120, 190, 255, 0.55);
+            color: #f5faff;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.45), 0 0 24px rgba(2, 87, 185, 0.35);
         }
 
         [data-theme="light"] #hero .hero-headline {
@@ -975,26 +984,34 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--accent-soft);
-            border: 1px solid var(--border-strong);
+            gap: 0.55rem;
+            background: rgba(4, 14, 26, 0.82);
+            border: 1px solid rgba(100, 175, 255, 0.5);
             border-radius: 100px;
-            padding: 0.35rem 1rem;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
+            padding: 0.5rem 1.2rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #f5faff;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
             margin-bottom: 1.8rem;
+            box-shadow:
+                0 4px 28px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+                0 0 28px rgba(2, 87, 185, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             opacity: 0;
             animation: fadeUp 0.8s 0.2s forwards;
         }
 
         .hero-badge .dot {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            background: var(--accent);
+            background: var(--accent-light);
+            box-shadow: 0 0 12px rgba(26, 114, 232, 0.85);
             animation: blink 1.5s infinite;
         }
 
@@ -1006,7 +1023,7 @@
             }
 
             50% {
-                opacity: 0.3
+                opacity: 0.55
             }
         }
 
@@ -4062,6 +4079,10 @@
                 opacity: 0.4;
             }
 
+            .hero-video .hero-bg-image {
+                opacity: 0.4;
+            }
+
             .hero-sub-block {
                 justify-content: center;
             }
@@ -4296,13 +4317,13 @@
 </nav>
 
 <main>
-    <!-- HERO — Modified text to match Image 2 -->
+    <!-- HERO — content from admin (Homepage Hero) -->
 <section id="hero">
   <div class="hero-video" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="https://interia-41v9.vercel.app/videos/it-video.mp4" type="video/mp4" />
-    </video>
-  </div>
+          <video autoplay muted loop playsinline preload="metadata">
+        <source src="https://interia-41v9.vercel.app/videos/it-video.mp4" type="video/mp4" />
+      </video>
+      </div>
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="orb orb1"></div>
@@ -4351,13 +4372,12 @@
     </svg>
   </div>
 
-  <!-- MODIFIED HERO CONTENT — matches Image 2 layout -->
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Las Vegas — Local IT Experts
-    </div>
-
+          <div class="hero-badge">
+        <span class="dot"></span>
+        Las Vegas — Local IT Experts
+      </div>
+    
     <h1 class="hero-headline">
       Technology solutions<br/>
       that <span class="accent">power your business.</span>
@@ -4365,50 +4385,63 @@
 
     <div class="hero-sub-block">
       <div class="hero-sub-bar"></div>
-      <p class="hero-sub">
-        Enterprise-grade IT services with a local team and no extra cost for onsite support.
-      </p>
+      <p class="hero-sub">Enterprise-grade IT services with a local team and no extra cost for onsite support.</p>
     </div>
 
     <div class="hero-trust">
-      <div class="trust-chip"><span class="check">✔</span> Fast Response Times</div>
-      <div class="trust-chip"><span class="check">✔</span> Onsite Support Included</div>
-      <div class="trust-chip"><span class="check">✔</span> Enterprise-Grade Security</div>
-      <div class="trust-chip"><span class="check">✔</span> Local Las Vegas Team</div>
-    </div>
+              <div class="trust-chip"><span class="check">✔</span> Fast Response Times</div>
+              <div class="trust-chip"><span class="check">✔</span> Onsite Support Included</div>
+              <div class="trust-chip"><span class="check">✔</span> Enterprise-Grade Security</div>
+              <div class="trust-chip"><span class="check">✔</span> Local Las Vegas Team</div>
+          </div>
 
     <div class="hero-ctas">
-      <a href="https://interia-41v9.vercel.app/contact" class="btn-primary">
+      <a href="http://interia.test/contact" class="btn-primary">
         <img class="btn-icon" src="https://interia-41v9.vercel.app/images/icon-free-assessment.svg" alt="" aria-hidden="true" />
         Free IT Assessment
       </a>
-      <a href="https://interia-41v9.vercel.app/offers" class="btn-secondary">
+      <a href="http://interia.test/offers" class="btn-secondary">
         <img class="btn-icon" src="https://interia-41v9.vercel.app/images/icon-ai-workshop.svg" alt="" aria-hidden="true" />
-        Free AI Workshops →
-      </a>
+        Free AI Workshops<span aria-hidden="true"> →</span>      </a>
     </div>
   </div>
 </section>
 
 <!-- STATS BAND -->
 <div class="stats-band">
-  <div class="stat-item reveal">
-    <div class="stat-number" data-target="200">0</div>
-    <div class="stat-label">Businesses Served</div>
+          <div class="stat-item reveal">
+              <div
+          class="stat-number"
+          data-target="100.00"
+                  >0</div>
+            <div class="stat-label">Businesses Served</div>
+    </div>
+          <div class="stat-item reveal reveal-delay-1">
+              <div
+          class="stat-number"
+          data-target="99.90"
+           data-decimal         >0</div>
+            <div class="stat-label">Uptime SLA %</div>
+    </div>
+          <div class="stat-item reveal reveal-delay-2">
+              <div class="stat-number">
+          <span
+            class="count-num"
+            data-target="15.00"
+                      >0</span>min
+        </div>
+            <div class="stat-label">Avg Response Time</div>
+    </div>
+          <div class="stat-item reveal reveal-delay-3">
+              <div class="stat-number">
+          <span
+            class="count-num"
+            data-target="10.00"
+                      >0</span>+
+        </div>
+            <div class="stat-label">Years Experience</div>
+    </div>
   </div>
-  <div class="stat-item reveal reveal-delay-1">
-    <div class="stat-number" data-target="99.9" data-decimal>0</div>
-    <div class="stat-label">Uptime SLA %</div>
-  </div>
-  <div class="stat-item reveal reveal-delay-2">
-    <div class="stat-number"><span data-target="15" class="count-num">0</span>min</div>
-    <div class="stat-label">Avg Response Time</div>
-  </div>
-  <div class="stat-item reveal reveal-delay-3">
-    <div class="stat-number"><span data-target="10" class="count-num">0</span>+</div>
-    <div class="stat-label">Years Experience</div>
-  </div>
-</div>
     <section id="services">
   <div class="section-label reveal">Our Services</div>
   <h2 class="section-title reveal">Managed IT Built<br />
@@ -4598,7 +4631,7 @@ for Small Business</h2>
         </marker>
       </defs>
       <line class="ai-steps-line-stroke"
-        x1="8" y1="335" x2="1175" y2="-37.58"
+        x1="8" y1="335" x2="1032" y2="2"
         marker-end="url(#aiArrowHead)" />
     </svg>
                 <div class="ai-step ai-step--detect reveal">
@@ -5081,7 +5114,7 @@ About Your IT</h2>
                             </div>
         
         <form class="contact-form reveal" method="POST" action="https://interia-41v9.vercel.app/contact" onsubmit="handleSubmit(event)" novalidate>
-            <input type="hidden" name="_token" value="DFcbuajQlcGYdbPFWZz35VgA6ODLBU6WdAlATUR2" autocomplete="off">            <div class="contact-form-feedback" role="status" aria-live="polite" hidden></div>
+            <input type="hidden" name="_token" value="xMuT8IrEIf4uWJPMcMA6WlHrf0TT9ZmVjsBE2ReL" autocomplete="off">            <div class="contact-form-feedback" role="status" aria-live="polite" hidden></div>
             <div class="form-row">
                 <div class="form-group">
                     <label>First Name</label>

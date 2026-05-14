@@ -810,6 +810,14 @@
             opacity: 0.5;
         }
 
+        .hero-video .hero-bg-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+        }
+
         .hero-grid {
             position: absolute;
             inset: 0;
@@ -918,9 +926,10 @@
 
         /* Keep hero section dark-style even in light theme */
         [data-theme="light"] #hero .hero-badge {
-            background: rgba(2, 87, 185, 0.12);
-            border-color: rgba(2, 87, 185, 0.35);
-            color: #9fc2ff;
+            background: rgba(4, 14, 26, 0.88);
+            border-color: rgba(120, 190, 255, 0.55);
+            color: #f5faff;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.45), 0 0 24px rgba(2, 87, 185, 0.35);
         }
 
         [data-theme="light"] #hero .hero-headline {
@@ -972,26 +981,34 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--accent-soft);
-            border: 1px solid var(--border-strong);
+            gap: 0.55rem;
+            background: rgba(4, 14, 26, 0.82);
+            border: 1px solid rgba(100, 175, 255, 0.5);
             border-radius: 100px;
-            padding: 0.35rem 1rem;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
+            padding: 0.5rem 1.2rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #f5faff;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
             margin-bottom: 1.8rem;
+            box-shadow:
+                0 4px 28px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+                0 0 28px rgba(2, 87, 185, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             opacity: 0;
             animation: fadeUp 0.8s 0.2s forwards;
         }
 
         .hero-badge .dot {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            background: var(--accent);
+            background: var(--accent-light);
+            box-shadow: 0 0 12px rgba(26, 114, 232, 0.85);
             animation: blink 1.5s infinite;
         }
 
@@ -1003,7 +1020,7 @@
             }
 
             50% {
-                opacity: 0.3
+                opacity: 0.55
             }
         }
 
@@ -4056,6 +4073,10 @@
             }
 
             .hero-video video {
+                opacity: 0.4;
+            }
+
+            .hero-video .hero-bg-image {
                 opacity: 0.4;
             }
 

@@ -17,7 +17,7 @@
         </marker>
       </defs>
       <line class="ai-steps-line-stroke"
-        x1="8" y1="335" x2="1175" y2="-37.58"
+        x1="8" y1="335" x2="1032" y2="2"
         marker-end="url(#aiArrowHead)" />
     </svg>
     @foreach ($aiAdoptionSection->steps as $step)

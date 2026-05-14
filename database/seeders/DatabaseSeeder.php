@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        $this->call(HeroSectionSeeder::class);
         $this->call(ServiceSectionSeeder::class);
         $this->call(GallerySectionSeeder::class);
         $this->call(AiAdoptionSectionSeeder::class);
